@@ -1,16 +1,10 @@
-<div>
-    <div ng-show="selectTeam.teams.length == 0" class="jumbotron">
-        <div class="container">
-            <h1>Créez votre première équipe !</h1>
-            <p>Pour commencer à utiliser l'application, créez une équipe.</p>
-            <p><a class="btn btn-primary btn-lg" href="#" role="button">Créer une équipe</a></p>
-        </div>
+<div class="container">
+    <div class="page-header">
+        <h1>Voici vos équipes :</h1>
     </div>
 
-    <p>test : {{selectTeam.teams.length}}</p>
-    <p ng-if="selectTeam.teams.count() == 0">Il n'y a pas d'équipe.</p>
-
-    <label for="teamSelect">Choisissez une équipe à administrer</label>
-    <select id="teamSelect" ng-options="team._id as team.name for team in selectTeam.teams" ng-model="teamId" ng-change="go('/'+ teamId +'/dashboard')">
-    </select>
+    <ul>
+        <li><a href="/create-team">Créer une équipe</a></li>
+        <li ng-repeat="team in selectTeam.teams"><a href="/{{team._id}}/dashboard">{{team.name}}</a></li>
+    </ul>
 </div>

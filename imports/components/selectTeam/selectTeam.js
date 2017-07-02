@@ -16,8 +16,6 @@ class SelectTeamCtrl {
                 return Teams.find();
             }
         });
-
-        console.log("Test : " + Teams.find().count());
     }
 }
 

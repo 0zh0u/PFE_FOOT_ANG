@@ -2,6 +2,7 @@ import angular from "angular";
 import angularMeteor from "angular-meteor";
 import uiRouter from "angular-ui-router";
 import {name as SelectTeam} from "../selectTeam/selectTeam";
+import {name as DashboardCtrl} from "../dashboard/dashboard";
 import {Teams} from "../../api/Teams";
 
 import template from "./trem.html";
@@ -14,7 +15,8 @@ const name = 'trem'
 export default angular.module(name, [
     angularMeteor,
     uiRouter,
-    SelectTeam
+    SelectTeam,
+    DashboardCtrl
 ])
     .component(name, {
         templateUrl: template,
