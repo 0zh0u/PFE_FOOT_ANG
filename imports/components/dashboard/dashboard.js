@@ -24,9 +24,6 @@ class DashboardCtrl {
             }
         });
     }
-    details(){
-        this.details = !this.details;
-    }
 }
 
 const name = 'dashboard'
