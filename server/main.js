@@ -3,7 +3,8 @@ import { Teams } from '../imports/api/Teams.js';
 import '../imports/api/Teams.js';
 
 Meteor.startup(() => {
-    if (Teams.find().count() === 0) {
+        Teams.remove({});
+
         const teams = [{
             "_id" : "PSG",
             "name": "Paris Saint Germain",
@@ -219,5 +220,4 @@ Meteor.startup(() => {
         teams.forEach((team) => {
             Teams.insert(team)
         });
-    }
 });

@@ -2,6 +2,7 @@ import angular from "angular";
 import angularMeteor from "angular-meteor";
 import uiRouter from "angular-ui-router";
 import {name as Header} from "../header/header";
+import {name as PlayerRow} from "../playerRow/playerRow";
 import {Teams} from "../../api/Teams";
 
 import template from "./dashboard.html";
@@ -31,7 +32,8 @@ const name = 'dashboard'
 export default angular.module(name, [
     angularMeteor,
     uiRouter,
-    Header
+    Header,
+    PlayerRow
 ])
     .component(name, {
         templateUrl: template,
