@@ -1,11 +1,21 @@
-<nav-header currentTeam="dashboard.team"></nav-header>
+<nav-header ></nav-header>
 
 <div class="container">
     <div class="page-header">
-        <h1>Evenements à venir</h1>
+        <h1>Evenements à venir - </h1>
+
     </div>
+    <div ng-repeat="event in dashboard.team.Events" class="panel" ng-class="{'panel-primary' : event.type == 'match','panel-success' : event.type == 'training'}" >
+        <div class="panel-heading">
+            <h3 class="panel-title">{{event.date | date }} - {{event.type}}</h3>
+            <button class="btn" ng-model="details" ng-click="dashboard.details()" type="button" class="btn">More</button>
+        </div>
+        <div class="panel-body">
+            {{event.location}}
+            <div ng-hide="details">
+                {{event}}
+            </div>
+        </div>
+     </div>
 
-    <ul>
-
-    </ul>
 </div>

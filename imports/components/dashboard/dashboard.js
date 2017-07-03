@@ -7,18 +7,25 @@ import {Teams} from "../../api/Teams";
 import template from "./dashboard.html";
 
 class DashboardCtrl {
-    constructor($scope, $stateParams) {
+    constructor($scope,$stateParams) {
+
         $scope.viewModel(this);
 
-        $scope.subscribe('teams', function () {
-            return [$stateParams.teamId];
-        });
+        //$reactive(this).attach($scope);
 
-        $scope.helpers({
-            team: function () {
+        this.subscribe('teams');
+
+        this.helpers({
+            teams : function(){
+                return Teams.find();
+            },
+            team() {
                 return Teams.findOne({_id: $stateParams.teamId});
             }
         });
+    }
+    details(){
+        this.details = !this.details;
     }
 }
 
@@ -32,13 +39,13 @@ export default angular.module(name, [
     .component(name, {
         templateUrl: template,
         controllerAs: name,
-        controller: DashboardCtrl
+        controller: ['$scope',"$stateParams",DashboardCtrl]
     })
     .config(function ($stateProvider) {
+        'ngInject';
             $stateProvider.state('dashboard', {
                 url: '/:teamId/dashboard',
-                template: '<dashboard></dashboard>',
-                controller: 'DashboardCtrl'
+                template: '<dashboard></dashboard>'
             });
         }
     );
