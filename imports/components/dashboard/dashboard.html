@@ -26,30 +26,20 @@
                         </br>
                         <span>Durée = {{event.duration | date : "hh:mm"}}</span>
 
-                        <table class="table playersTable">
-                            <tr>
-                                <th>{{dashboard.team._id}}</th>
+                        <div class="table playersTable">
+                            <p>{{dashboard.team._id}}</p>
+                            <p ng-repeat="player in dashboard.team.Players">
+                                <player-row player="player"></player-row>
+                            </p>
+                        </div>
 
-                            </tr>
-                            <tr ng-repeat="player in dashboard.team.Players">
-                                <td>
-                                    <player-row player="player"></player-row>
-                                </td>
-                            </tr>
-                        </table>
+                        <div class="table playersTable">
+                            <p>{{event.team_b}}</p>
+                            <p ng-repeat="player in event.Players">
+                                <player-row player="player"></player-row>
+                            </p>
 
-                        <table class="table playersTable">
-                            <tr>
-                                <th>{{event.team_b}}</th>
-
-                            </tr>
-                            <tr ng-repeat="player in event.Players">
-                                <td>
-                                    <player-row player="player"></player-row>
-                                </td>
-                            </tr>
-
-                        </table>
+                        </div>
 
                     </div>
                     <div ng-switch-when="training">

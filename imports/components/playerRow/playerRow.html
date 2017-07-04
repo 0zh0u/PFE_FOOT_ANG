@@ -1,9 +1,7 @@
 <div class="player player-{{$ctrl.player.condition_type}}">
-    <a ng-click="detail=!detail">
-        <button type="button" class="btn btn-default btn-xs" aria-label="Left Align">
-            <span class="fa" ng-class="{'fa-search-plus' : !detail, 'fa-search-minus': detail}" aria-hidden="true"></span>
-        </button>
-    </a>
+    <button ng-click="detail=!detail" type="button" class="btn btn-default btn-xs" aria-label="Left Align">
+        <span class="fa" ng-class="{'fa-search-plus' : !detail, 'fa-search-minus': detail}" aria-hidden="true"></span>
+    </button>
     <span id="text">
     {{$ctrl.player.firstname}} {{$ctrl.player.lastname}}
     </span>
