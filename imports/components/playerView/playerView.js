@@ -6,41 +6,15 @@ import {Teams} from "../../api/Teams";
 import template from "./playerView.html";
 
 class playerViewCtrl {
-    constructor($scope,$reactive) {
-        // $scope.viewModel(this);
-        // $reactive(this).attach($scope);
-
-        // this.subscribe('teams');
-
-        // $scope.player=playerBind;
-
-        // $scope.helpers({
-        //     player() {
-        //         return $scope.getReactively('player');
-        //         // let toto = Teams.findOne({Players : {$elemMatch:{_id:$stateParams.userId}}});
-        //         // if(toto === undefined){
-        //         //     return toto;
-        //         // }else{
-        //         //     for(var i=0;i<toto.Players.length; i++){
-        //         //         if(toto.Players[i]._id == $stateParams.userId){
-        //         //             return toto.Players[i];
-        //         //         }
-        //         //     }
-        //         //     return undefined;
-        //         // }
-        //     }
-        // });
-
+    constructor($scope) {
         Tracker.autorun(() => {
-            console.log("testPL : " + $scope.getReactively('player'));
-            if(!$scope.getReactively('player')) return;
-            console.log("do graph !:");
+            if(!$scope.getReactively('$ctrl.player')) return;
             var stats = [];
-            for(key in $scope.getReactively('player').Stats){
-                stats.push($scope.getReactively('player').Stats[key]);
+            for(key in $scope.getReactively('$ctrl.player').Stats){
+                stats.push($scope.getReactively('$ctrl.player').Stats[key]);
             }
 
-            var ctx = document.getElementById($scope.getReactively('player._id')+"-chart");
+            var ctx = document.getElementById($scope.getReactively('$ctrl.player._id')+"-chart");
             var myChart = new Chart(ctx, {
                 type: 'radar',
                 data: {
