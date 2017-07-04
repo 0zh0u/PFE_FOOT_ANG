@@ -6,32 +6,32 @@ import {Teams} from "../../api/Teams";
 import template from "./playerView.html";
 
 class playerViewCtrl {
-    constructor($scope,$reactive,player) {
+    constructor($scope,$reactive) {
         // $scope.viewModel(this);
-        $reactive(this).attach($scope);
+        // $reactive(this).attach($scope);
 
-        this.subscribe('teams');
+        // this.subscribe('teams');
 
-        $scope.player={};
+        // $scope.player=playerBind;
 
-        $scope.helpers({
-            player() {
-                return player;
-                // let toto = Teams.findOne({Players : {$elemMatch:{_id:$stateParams.userId}}});
-                // if(toto === undefined){
-                //     return toto;
-                // }else{
-                //     for(var i=0;i<toto.Players.length; i++){
-                //         if(toto.Players[i]._id == $stateParams.userId){
-                //             return toto.Players[i];
-                //         }
-                //     }
-                //     return undefined;
-                // }
-            }
-        });
+        // $scope.helpers({
+        //     player() {
+        //         return $scope.getReactively('player');
+        //         // let toto = Teams.findOne({Players : {$elemMatch:{_id:$stateParams.userId}}});
+        //         // if(toto === undefined){
+        //         //     return toto;
+        //         // }else{
+        //         //     for(var i=0;i<toto.Players.length; i++){
+        //         //         if(toto.Players[i]._id == $stateParams.userId){
+        //         //             return toto.Players[i];
+        //         //         }
+        //         //     }
+        //         //     return undefined;
+        //         // }
+        //     }
+        // });
 
-        $scope.autorun(() => {
+        Tracker.autorun(() => {
             console.log("testPL : " + $scope.getReactively('player'));
             if(!$scope.getReactively('player')) return;
             console.log("do graph !:");
@@ -90,7 +90,7 @@ export default angular.module(name, [
 ])
     .component(name, {
         templateUrl: template,
-        controller: ['$scope', '$reactive', playerViewCtrl],
+        controller: ['$scope', playerViewCtrl],
         bindings: {
             player: "="
         }
