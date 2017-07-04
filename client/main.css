@@ -19,6 +19,17 @@ body trem .playersTable {
   float: left;
   width: 50%;
 }
+
+.player-good{
+  color:#00C703;
+}
+.player-hurt{
+  color:#D81300;
+}
+.player-tired{
+  color: #d89d00;
+}
+
 body trem .container {
   height: 100%;
   width: 40%;

@@ -4,6 +4,20 @@ import angularMeteor from "angular-meteor";
 import template from "./playerRow.html";
 
 class PlayerRow {
+    constructor($scope,player) {
+
+        $scope.viewModel(this);
+
+        //$reactive(this).attach($scope);
+
+        this.player={};
+
+        this.helpers({
+            player : function(){
+                return player;
+            }
+        });
+    }
 }
 
 const name = 'playerRow'
@@ -13,6 +27,7 @@ export default angular.module(name, [
 ])
     .component(name, {
         templateUrl: template,
+        controller : ["$scope",PlayerRow],
         bindings: {
             player: "="
         }
