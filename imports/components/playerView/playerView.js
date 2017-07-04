@@ -21,6 +21,7 @@ export default angular.module(name, [
     .component(name, {
         templateUrl: template,
         controller: ['$scope', PlayerViewCtrl],
+        controllerAs : name,
         bindings: {
             player: "="
         }

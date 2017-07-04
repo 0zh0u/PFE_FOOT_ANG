@@ -1,4 +1,4 @@
-<div class="modal fade" id="{{$ctrl.player._id}}-Pop" role="dialog">
+<div class="modal fade" id="{{playerView.player._id}}-Pop" role="dialog">
     <div class="modal-dialog modal-sm">
         <div class="modal-content">
             <div class="player-view-header-text modal-header">
@@ -7,15 +7,15 @@
             <div class="modal-body">
                 <div class="playerDetail">
                     <ul>
-                        <li>Nom : {{$ctrl.player.lastname}}</li>
-                        <li>Prenom : {{$ctrl.player.firstname}}</li>
-                        <li class="player-{{$ctrl.player.condition_type}}">Condition : {{$ctrl.player.condition_type}}</li>
+                        <li>Nom : {{playerView.player.lastname}}</li>
+                        <li>Prenom : {{playerView.player.firstname}}</li>
+                        <li class="player-{{playerView.player.condition_type}}">Condition : {{playerView.player.condition_type}}</li>
 
-                        <li>Actif : {{!$ctrl.player.condition_type}}</li>
-                        <li>Test : {{$ctrl.player._id}}</li>
+                        <li>Actif : {{!playerView.player.condition_type}}</li>
+                        <li>Test : {{playerView.player._id}}</li>
                     </ul>
                 </div>
-                <player-stat-chart player="$ctrl.player"></player-stat-chart>
+                <player-stat-chart player="playerView.player"></player-stat-chart>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

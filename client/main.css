@@ -84,6 +84,9 @@ body trem .container select-team ul li a:active {
   margin-right: 4px;
 }
 @media (max-width: 868px) {
+  .navbar .container {
+    width: 100%;
+  }
   .navbar .navbar-header {
     float: none;
   }
