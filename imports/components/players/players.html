@@ -1,0 +1,24 @@
+<navig currentteam="$ctrl.team"></navig>
+
+<div class="container-fluid">
+    <div class="container">
+        <div class="page-header">
+            <h1>Evenements à venir<br>
+                <small>{{$ctrl.team.name}}</small>
+            </h1>
+        </div>
+        <p>
+            <button ng-click="$state.go('/teams')" type="button" class="btn btn-default btn-sm">
+                <i class="fa fa-plus"></i> Ajouter un joueur
+            </button>
+        </p>
+        <div ng-repeat="player in $ctrl.team.Players">
+            <player-row player="player">
+                <button ng-click="" type="button" class="btn btn-default btn-xs" aria-label="Left Align" data-toggle="modal" data-target="#{{player._id}}-Pop">
+                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                </button>
+            </player-row>
+            <player-update player="player"></player-update>
+        </div>
+    </div>
+</div>

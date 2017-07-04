@@ -12,6 +12,7 @@
     "babel-runtime": "^6.23.0",
     "bcrypt": "^1.0.2",
     "bootstrap": "^3.3.7",
+    "jquery-ui": "^1.12.1",
     "meteor-node-stubs": "~0.2.0"
   },
   "devDependencies": {

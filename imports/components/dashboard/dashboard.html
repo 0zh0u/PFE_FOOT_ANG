@@ -1,49 +1,63 @@
 <navig currentteam="dashboard.team"></navig>
 
-<div class="container">
-    <div class="page-header">
-        <h1>Evenements à venir - </h1>
-        <a ng-href="/{{dashboard.team._id}}/NewEvent">
-            <button type="button" class="btn btn-default btn-sm">
-                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Ajouter nouvel event TODO
-            </button>
-        </a>
-    </div>
-    <div ng-repeat="event in dashboard.team.Events" class="panel"
-         ng-class="{'panel-primary' : event.type == 'match','panel-success' : event.type == 'training'}">
-        <div class="panel-heading">
-            <h3 class="panel-title">{{event.date | date }} - {{event.type}}
-                <a href="#" class="panel-more pull-left" ng-click="details = !details"><i class="fa"
-                                                                                          ng-class="{'fa-minus' : details, 'fa-plus' : !details}"></i></a>
-            </h3>
+<div class="container-fluid">
+    <div class="container">
+        <div class="page-header">
+            <h1>Evenements à venir<br>
+                <small>{{dashboard.team.name}}</small>
+            </h1>
         </div>
-        <div class="panel-body">
-            Lieu : {{event.location}}
-            <div ng-show="details">
-                <div ng-switch="event.type">
-                    <div ng-switch-when="match">
-                        {{dashboard.team._id}} / {{event.team_b}}
-                        </br>
-                        <div>Durée = {{event.duration | date : "hh:mm"}}</div>
+        <p>
+            <button ng-click="$state.go('/teams')" type="button" class="btn btn-default btn-sm">
+                <i class="fa fa-plus"></i> Ajouter nouvel event TODO
+            </button>
+        </p>
+        <div ng-repeat="event in dashboard.team.Events" class="panel"
+             ng-class="{'panel-primary' : event.type == 'match','panel-success' : event.type == 'training'}">
+            <div class="panel-heading">
+                <h3 class="panel-title">{{event.date | date }} - {{event.type}}
+                    <a href="#" class="panel-more pull-left" ng-click="details = !details"><i class="fa"
+                                                                                              ng-class="{'fa-minus' : details, 'fa-plus' : !details}"></i></a>
+                </h3>
+            </div>
+            <div class="panel-body">
+                Lieu : {{event.location}}
+                <div ng-show="details">
+                    <div ng-switch="event.type">
+                        <div ng-switch-when="match">
+                            {{dashboard.team._id}} / {{event.team_b}}
+                            </br>
+                            <div>Durée = {{event.duration | date : "hh:mm"}}</div>
 
-                        <div class="table playersTable">
-                            <p>{{dashboard.team._id}}</p>
-                            <p ng-repeat="player in dashboard.team.Players">
-                                <player-row player="player"></player-row>
-                            </p>
+                            <div class="table playersTable">
+                                <p>{{dashboard.team._id}}</p>
+                                <p ng-repeat="player in dashboard.team.Players">
+                                    <player-row player="player">
+                                        <button ng-click="" type="button" class="btn btn-default btn-xs" aria-label="Left Align" data-toggle="modal" data-target="#{{player._id}}-Pop">
+                                            <i class="fa fa-search-plus" aria-hidden="true"></i>
+                                        </button>
+                                    </player-row>
+                                    <player-view player="player"></player-view>
+                                </p>
+                            </div>
+
+                            <div class="table playersTable">
+                                <p>{{event.team_b}}</p>
+                                <p ng-repeat="player in event.Players">
+                                    <player-row player="player">
+                                        <button ng-click="" type="button" class="btn btn-default btn-xs" aria-label="Left Align" data-toggle="modal" data-target="#{{player._id}}-Pop">
+                                            <span class="fa fa-search-plus" aria-hidden="true"></span>
+                                        </button>
+                                    </player-row>
+                                    <player-view player="player"></player-view>
+                                </p>
+
+                            </div>
+
                         </div>
-
-                        <div class="table playersTable">
-                            <p>{{event.team_b}}</p>
-                            <p ng-repeat="player in event.Players">
-                                <player-row player="player"></player-row>
-                            </p>
+                        <div ng-switch-when="training">
 
                         </div>
-
-                    </div>
-                    <div ng-switch-when="training">
-
                     </div>
                 </div>
             </div>

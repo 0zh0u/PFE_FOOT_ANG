@@ -15,6 +15,11 @@
                         <li>Test : {{$ctrl.player._id}}</li>
                     </ul>
                 </div>
+                <ul>
+                    <li ng-repeat="stat in $ctrl.player.Stats">
+                        {{stat.name}} : <input type="textfield" ng-model="stat.value" />
+                    </li>
+                </ul>
                 <player-stat-chart player="$ctrl.player"></player-stat-chart>
             </div>
             <div class="modal-footer">

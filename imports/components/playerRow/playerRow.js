@@ -1,6 +1,6 @@
 import angular from "angular";
 import angularMeteor from "angular-meteor";
-import {name as playerViewCtrl} from "../playerView/playerView";
+import {name as PlayerViewCtrl} from "../playerView/playerView";
 
 import template from "./playerRow.html";
 
@@ -25,10 +25,11 @@ const name = 'playerRow'
 
 export default angular.module(name, [
     angularMeteor,
-    playerViewCtrl
+    PlayerViewCtrl
 ])
     .component(name, {
         templateUrl: template,
+        transclude: true,
         controller : ["$scope",PlayerRow],
         bindings: {
             player: "="

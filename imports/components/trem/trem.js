@@ -3,7 +3,7 @@ import angularMeteor from "angular-meteor";
 import uiRouter from "angular-ui-router";
 import {name as SelectTeam} from "../selectTeam/selectTeam";
 import {name as DashboardCtrl} from "../dashboard/dashboard";
-import {name as playerView} from "../playerView/playerView";
+import {name as PlayersCtrl} from "../players/players";
 import {Teams} from "../../api/Teams";
 
 import template from "./trem.html";
@@ -18,7 +18,7 @@ export default angular.module(name, [
     uiRouter,
     SelectTeam,
     DashboardCtrl,
-    playerView
+    PlayersCtrl
 ])
     .component(name, {
         templateUrl: template,
