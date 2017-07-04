@@ -61,11 +61,11 @@ Meteor.startup(() => {
                 "condition": "OK",
                 "condition_type": "good",
                 "Stats": [
-                    {name:"speed",value: 30},
-                    {name:"control",value: 40},
-                    {name:"teamwork",value: 50},
-                    {name:"attack",value: 60},
-                    {name:"defense",value: 70}
+                    {name: "speed", value: 30},
+                    {name: "control", value: 40},
+                    {name: "teamwork", value: 50},
+                    {name: "attack", value: 60},
+                    {name: "defense", value: 70}
                 ],
                 "isDisabled": false
             },
@@ -76,11 +76,11 @@ Meteor.startup(() => {
                 "condition": "Fracture à la jambe",
                 "condition_type": "hurt",
                 "Stats": [
-                    {name:"speed",value: 30},
-                    {name:"control",value: 40},
-                    {name:"teamwork",value: 50},
-                    {name:"attack",value: 60},
-                    {name:"defense",value: 70}
+                    {name: "speed", value: 30},
+                    {name: "control", value: 40},
+                    {name: "teamwork", value: 50},
+                    {name: "attack", value: 60},
+                    {name: "defense", value: 70}
                 ],
                 "isDisabled": false
             },
@@ -91,11 +91,11 @@ Meteor.startup(() => {
                 "condition": "Une semaine de repos",
                 "condition_type": "tired",
                 "Stats": [
-                    {name:"speed",value: 30},
-                    {name:"control",value: 40},
-                    {name:"teamwork",value: 50},
-                    {name:"attack",value: 60},
-                    {name:"defense",value: 70}
+                    {name: "speed", value: 30},
+                    {name: "control", value: 40},
+                    {name: "teamwork", value: 50},
+                    {name: "attack", value: 60},
+                    {name: "defense", value: 70}
                 ],
                 "isDisabled": false
             }
@@ -156,11 +156,11 @@ Meteor.startup(() => {
                 "condition": "OK",
                 "condition_type": "good",
                 "Stats": [
-                    {name:"speed",value: 30},
-                    {name:"control",value: 40},
-                    {name:"teamwork",value: 50},
-                    {name:"attack",value: 60},
-                    {name:"defense",value: 70}
+                    {name: "speed", value: 30},
+                    {name: "control", value: 40},
+                    {name: "teamwork", value: 50},
+                    {name: "attack", value: 60},
+                    {name: "defense", value: 70}
                 ],
                 "isDisabled": false
             },
@@ -171,11 +171,11 @@ Meteor.startup(() => {
                 "condition": "Fracture à la jambe",
                 "condition_type": "hurt",
                 "Stats": [
-                    {name:"speed",value: 30},
-                    {name:"control",value: 40},
-                    {name:"teamwork",value: 50},
-                    {name:"attack",value: 60},
-                    {name:"defense",value: 70}
+                    {name: "speed", value: 30},
+                    {name: "control", value: 40},
+                    {name: "teamwork", value: 50},
+                    {name: "attack", value: 60},
+                    {name: "defense", value: 70}
                 ],
                 "isDisabled": false
             },
@@ -186,11 +186,11 @@ Meteor.startup(() => {
                 "condition": "Une semaine de repos",
                 "condition_type": "tired",
                 "Stats": [
-                    {name:"speed",value: 30},
-                    {name:"control",value: 40},
-                    {name:"teamwork",value: 50},
-                    {name:"attack",value: 60},
-                    {name:"defense",value: 70}
+                    {name: "speed", value: 30},
+                    {name: "control", value: 40},
+                    {name: "teamwork", value: 50},
+                    {name: "attack", value: 60},
+                    {name: "defense", value: 70}
                 ],
                 "isDisabled": false
             }

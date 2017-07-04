@@ -29,6 +29,10 @@ body trem .player-tired {
   color: #d86900;
   background-color: lightsalmon;
 }
+body trem .noPad {
+  padding: 0 0 10px 0;
+  margin: 10px 0 0 0 ;
+}
 body trem .playersTable {
   float: left;
   width: 50%;

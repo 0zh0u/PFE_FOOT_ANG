@@ -7,7 +7,7 @@
             <ul class="nav navbar-nav pull-left">
                 <li class="dropdown pull-left">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false">{{$ctrl.currentteam.name}} <span class="caret"></span></a>
+                       aria-expanded="false">{{ { true : $ctrl.currentteam.name, false : 'Aucune'}[$ctrl.currentteam != undefined]}}  <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li ng-repeat="team in $ctrl.teams"><a href="/{{team._id}}/dashboard">{{team.name}}</a></li>
                         <li ng-show="$ctrl.teams.count() == 0">Aucune autre équipe</li>
