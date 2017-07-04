@@ -29,6 +29,7 @@ export default angular.module(name, [
 ])
     .component(name, {
         templateUrl: template,
+        controllerAs: name,
         controller : ["$scope",PlayerRow],
         bindings: {
             player: "="

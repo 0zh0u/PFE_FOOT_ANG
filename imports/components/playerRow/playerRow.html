@@ -1,12 +1,12 @@
-<div class="player player-{{$ctrl.player.condition_type}}">
+<div class="player player-{{playerRow.player.condition_type}}">
 
 
-    <button ng-click="" type="button" class="btn btn-default btn-xs" aria-label="Left Align" data-toggle="modal" data-target="#{{$ctrl.player._id}}-Pop">
+    <button ng-click="" type="button" class="btn btn-default btn-xs" aria-label="Left Align" data-toggle="modal" data-target="#{{playerRow.player._id}}-Pop">
         <span class="fa fa-search-plus" aria-hidden="true"></span>
     </button>
     <span id="text">
-    {{$ctrl.player.firstname}} {{$ctrl.player.lastname}}
+    {{playerRow.player.firstname}} {{playerRow.player.lastname}}
     </span>
 
-    <player-view player="$ctrl.player"></player-view>
+    <player-view player="playerRow.player"></player-view>
 </div>
