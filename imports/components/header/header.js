@@ -5,14 +5,14 @@ import {Teams} from "../../api/Teams";
 import template from './header.html';
 
 class Header {
-    constructor($scope) {
+    constructor($scope,currentTeam) {
         $scope.viewModel(this);
 
-        this.subscribe('teams');
+        this.currentTeam={};
 
         this.helpers({
-            teams() {
-                return Teams.find();
+            currentTeam() {
+                return currentTeam;
             }
         });
     }

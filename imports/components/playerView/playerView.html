@@ -1,0 +1,17 @@
+<nav-header ></nav-header>
+
+<div class="container playerView">
+    <div class="playerDetail">
+        <ul>
+            <li>Nom : {{playerView.player.lastname}}</li>
+            <li>Prenom : {{playerView.player.firstname}}</li>
+            <li class="player-{{playerView.player.condition_type}}">Condition : {{playerView.player.condition_type}}</li>
+
+            <li>Actif : {{!playerView.player.condition_type}}</li>
+        </ul>
+    </div>
+    <button ng-click="playerView.test()"></button>
+    <div class="playerChart">
+        <canvas id="myChart" width="400" height="400"></canvas>
+    </div>
+</div>

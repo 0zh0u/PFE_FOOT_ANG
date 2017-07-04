@@ -20,13 +20,25 @@ body trem .playersTable {
   width: 50%;
 }
 
-.player-good{
+.player a{
+  text-decoration: none;
+}
+
+.playerDetail{
+  width:45%;
+}
+
+.playerDetail{
+  width:45%;
+}
+
+.player-good #text{
   color:#00C703;
 }
-.player-hurt{
+.player-hurt #text{
   color:#D81300;
 }
-.player-tired{
+.player-tired #text{
   color: #d89d00;
 }
 

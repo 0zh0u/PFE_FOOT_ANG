@@ -1,1 +1,11 @@
-<div class="player player-{{$ctrl.player.condition_type}}">{{$ctrl.player.firstname}} {{$ctrl.player.lastname}}</div>
+<div class="player player-{{$ctrl.player.condition_type}}">
+    <a ng-href="/playerView/{{$ctrl.player._id}}">
+        <button type="button" class="btn btn-default btn-xs" aria-label="Left Align">
+            <span class="fa fa-search-plus" aria-hidden="true"></span>
+
+        </button>
+    </a>
+    <span id="text">
+    {{$ctrl.player.firstname}} {{$ctrl.player.lastname}}
+    </span>
+</div>
