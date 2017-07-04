@@ -18,12 +18,15 @@ body trem .panel-more {
 }
 body trem .player-good {
   color: #00C703;
+  background-color: lightgreen;
 }
 body trem .player-hurt {
   color: #D81300;
+  background-color: palevioletred;
 }
 body trem .player-tired {
   color: #d86900;
+  background-color: lightsalmon;
 }
 body trem .playersTable {
   float: left;
