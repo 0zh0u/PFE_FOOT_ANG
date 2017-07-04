@@ -1,13 +1,27 @@
-<div class="playerDetail">
-    <ul>
-        <li>Nom : {{$ctrl.player.lastname}}</li>
-        <li>Prenom : {{$ctrl.player.firstname}}</li>
-        <li class="player-{{$ctrl.player.condition_type}}">Condition : {{$ctrl.player.condition_type}}</li>
+<div class="modal fade" id="{{$ctrl.player._id}}-Pop" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="player-view-header-text modal-header">
+                Fiche de joueur
+            </div>
+            <div class="modal-body">
+                <div class="playerDetail">
+                    <ul>
+                        <li>Nom : {{$ctrl.player.lastname}}</li>
+                        <li>Prenom : {{$ctrl.player.firstname}}</li>
+                        <li class="player-{{$ctrl.player.condition_type}}">Condition : {{$ctrl.player.condition_type}}</li>
 
-        <li>Actif : {{!$ctrl.player.condition_type}}</li>
-        <li>Test : {{$ctrl.player._id}}</li>
-    </ul>
-</div>
-<div class="playerChart">
-    <canvas id="{{$ctrl.player._id}}-chart" width="400" height="400"></canvas>
+                        <li>Actif : {{!$ctrl.player.condition_type}}</li>
+                        <li>Test : {{$ctrl.player._id}}</li>
+                    </ul>
+                </div>
+                <div class="playerChart">
+                    <canvas id="{{$ctrl.player._id}}-chart" width="400" height="400"></canvas>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
 </div>

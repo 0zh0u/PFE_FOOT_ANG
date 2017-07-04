@@ -77,10 +77,10 @@ Meteor.startup(() => {
             "condition_type" : "hurt",
             "Stats": {
                 "speed" :  30,
-                "control" : 40,
-                "teamwork" : 50,
-                "attack" : 60,
-                "defense" : 70
+                "control" : 50,
+                "teamwork" : 40,
+                "attack" : 80,
+                "defense" : 30
             },
             "isDisabled": false
         },
@@ -91,9 +91,9 @@ Meteor.startup(() => {
             "condition" : "Une semaine de repos",
             "condition_type" : "tired",
             "Stats": {
-                "speed": 30,
-                "control": 40,
-                "teamwork": 50,
+                "speed": 40,
+                "control": 60,
+                "teamwork": 40,
                 "attack": 60,
                 "defense": 70
             },

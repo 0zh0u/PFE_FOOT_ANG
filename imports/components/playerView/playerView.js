@@ -8,13 +8,14 @@ import template from "./playerView.html";
 class playerViewCtrl {
     constructor($scope) {
         Tracker.autorun(() => {
-            if(!$scope.getReactively('$ctrl.player')) return;
+            let player = $scope.getReactively('$ctrl.player');
+            if(!player) return;
             var stats = [];
-            for(key in $scope.getReactively('$ctrl.player').Stats){
+            for(key in player.Stats){
                 stats.push($scope.getReactively('$ctrl.player').Stats[key]);
             }
 
-            var ctx = document.getElementById($scope.getReactively('$ctrl.player._id')+"-chart");
+            var ctx = document.getElementById(player._id+"-chart");
             var myChart = new Chart(ctx, {
                 type: 'radar',
                 data: {
