@@ -5,6 +5,7 @@ import '../imports/api/Teams.js';
 Meteor.startup(() => {
         Teams.remove({});
 
+
         const teams = [{
             "_id" : "PSG",
             "name": "Paris Saint Germain",
