@@ -1,7 +1,7 @@
 import angular from "angular";
 import angularMeteor from "angular-meteor";
 import uiRouter from "angular-ui-router";
-import {name as Header} from "../header/header";
+import {name as Navig} from "../navig/navig";
 import {name as PlayerRow} from "../playerRow/playerRow";
 import {Teams} from "../../api/Teams";
 
@@ -9,6 +9,7 @@ import template from "./dashboard.html";
 
 class DashboardCtrl {
     constructor($scope,$stateParams) {
+        'ngInject';
 
         $scope.viewModel(this);
 
@@ -32,8 +33,8 @@ const name = 'dashboard'
 export default angular.module(name, [
     angularMeteor,
     uiRouter,
-    Header,
-    PlayerRow
+    PlayerRow,
+    Navig
 ])
     .component(name, {
         templateUrl: template,

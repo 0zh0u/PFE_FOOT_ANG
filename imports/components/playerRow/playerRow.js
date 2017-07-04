@@ -1,5 +1,6 @@
 import angular from "angular";
 import angularMeteor from "angular-meteor";
+import {name as playerViewCtrl} from "../playerView/playerView";
 
 import template from "./playerRow.html";
 
@@ -23,7 +24,8 @@ class PlayerRow {
 const name = 'playerRow'
 
 export default angular.module(name, [
-    angularMeteor
+    angularMeteor,
+    playerViewCtrl
 ])
     .component(name, {
         templateUrl: template,
