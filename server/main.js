@@ -60,6 +60,7 @@ Meteor.startup(() => {
                 "lastname": "Titi",
                 "condition": "OK",
                 "condition_type": "good",
+                "post" : "C_GK",
                 "Stats": [
                     {name: "speed", value: 30},
                     {name: "control", value: 40},
@@ -75,6 +76,7 @@ Meteor.startup(() => {
                 "lastname": "Tutu",
                 "condition": "Fracture à la jambe",
                 "condition_type": "hurt",
+                "post" : "L_B",
                 "Stats": [
                     {name: "speed", value: 30},
                     {name: "control", value: 40},
@@ -90,6 +92,7 @@ Meteor.startup(() => {
                 "lastname": "Lili",
                 "condition": "Une semaine de repos",
                 "condition_type": "tired",
+                "post" : "R_B",
                 "Stats": [
                     {name: "speed", value: 30},
                     {name: "control", value: 40},
