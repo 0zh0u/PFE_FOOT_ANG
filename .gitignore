@@ -2,3 +2,5 @@ node_modules/
 .idea/workspace.xml
 .idea/libraries/meteor_packages_auto_import_browser.xml
 *.xml
+.idea/workspace.xml
+.idea/watcherTasks.xml
