@@ -1,6 +1,10 @@
 html {
   height: 100%;
 }
+.flex-container {
+  display: flex;
+  align-items: baseline;
+}
 body {
   height: 100%;
   max-height: 100%;
@@ -17,25 +21,72 @@ body trem .panel-more {
   font-weight: bold;
   margin-right: 8px;
 }
-body trem .player-good {
+body trem .player-good ng-binding {
   color: #00C703;
-  background-color: lightgreen;
 }
-body trem .player-hurt {
+body trem .player-hurt ng-binding {
   color: #D81300;
-  background-color: palevioletred;
 }
-body trem .player-tired {
+body trem .player-tired ng-binding {
   color: #d86900;
-  background-color: lightsalmon;
 }
 body trem .noPad {
   padding: 0 0 10px 0;
   margin: 10px 0 0 0 ;
 }
+body trem dashboard .loc.open {
+  margin-bottom: 1em;
+}
+body trem dashboard .match {
+  margin-bottom: 1em;
+}
 body trem .playersTable {
   float: left;
   width: 50%;
+  display: table;
+  padding: 1em;
+  border-top: 1px solid #ccc;
+}
+body trem .playersTable .player {
+  padding: 1em 0 1em 0  ;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+body trem .playersTable .player ng-transclude {
+  flex: 1;
+  text-align: center;
+}
+body trem .playersTable .player i {
+  flex: 1;
+  text-align: center;
+}
+body trem .playersTable .player #text {
+  flex: 4;
+  text-align: center;
+  padding-left: 15px;
+}
+body trem .playersTable .player .post {
+  flex: 3;
+  text-align: center;
+}
+body trem .playersTable .fa-thumbs-up {
+  color: #09ab09;
+  font-size: 1.5em;
+}
+body trem .playersTable .fa-medkit {
+  color: #dc0600;
+  font-size: 1.5em;
+}
+body trem .playersTable .fa-power-off {
+  color: #dc8700;
+  font-size: 1.5em;
+}
+body trem .playersTable .fa-search-plus {
+  font-size: 1.5em;
+  padding: 3px 2px 3px 2px;
+}
+body trem .playersTable .ng-scope .condition {
+  border-right: 1px solid #ccc;
 }
 body trem .player-view-header-text {
   color: black;
@@ -79,7 +130,7 @@ body trem select-team .equipeList li a {
 }
 body trem select-team .equipeList li a:hover {
   text-decoration: none;
-  background-color: #ffd17f;
+  background-color: #1f4a70;
 }
 body trem select-team .equipeList li a:visited {
   text-decoration: none;
