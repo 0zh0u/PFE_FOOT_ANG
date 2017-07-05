@@ -1,10 +1,18 @@
 <div class="container">
     <div class="page-header">
-        <h1>Voici vos équipes :</h1>
+        <h1>Vos équipes</h1>
     </div>
+    <ul id="createTeam">
+        <li>
+            <a class="btn btn-primary" href="/create-team">
+                <span class="badge "><i class="fa fa-plus" aria-hidden="true"></i></span> Créer une équipe
+            </a>
+        </li>
+    </ul>
+    <ul class="equipeList">
 
-    <ul>
-        <li><a href="/create-team">Créer une équipe</a></li>
-        <li ng-repeat="team in selectTeam.teams"><a href="/{{team._id}}/dashboard">{{team.name}}</a></li>
+        <li  ng-repeat="team in selectTeam.teams">
+            <a class=" btn btn-primary" href="/{{team._id}}/dashboard">{{team.name}}<span class="badge">{{team.Events.length}}</span></a>
+        </li>
     </ul>
 </div>

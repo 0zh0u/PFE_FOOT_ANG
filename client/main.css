@@ -47,41 +47,44 @@ body trem navig + .container-fluid {
 }
 body trem .container {
   height: 100%;
-  width: 40%;
-  margin-left: 30%;
+  width: 80%;
+  margin: auto;
   padding-bottom: 15px;
   background-color: ghostwhite;
   box-shadow: 0px 0px 8px black;
 }
-body trem .container select-team ul {
+body trem select-team .equipeList .badge {
+  margin-left: 5px;
+}
+body trem select-team h1 {
+  text-align: center;
+}
+body trem select-team ul {
   list-style: none;
-  margin: 0 -15px;
-  padding: 0;
 }
-body trem .container select-team ul li {
-  width: 100%;
-  height: 25px;
-  line-height: 25px;
-  background-color: #ffe332;
-  border-top: 1px solid gray;
+body trem select-team #createTeam {
+  width: 25%;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
 }
-body trem .container select-team ul li:first-child {
-  border-top: 0;
+body trem select-team .equipeList {
+  list-style: none;
+  display: flex;
 }
-body trem .container select-team ul li a {
-  display: block;
-  width: 100%;
-  height: 100%;
+body trem select-team .equipeList li {
+  margin-right: 5vw;
+}
+body trem select-team .equipeList li a {
   padding-left: 8px;
 }
-body trem .container select-team ul li a:hover {
+body trem select-team .equipeList li a:hover {
   text-decoration: none;
   background-color: #ffd17f;
 }
-body trem .container select-team ul li a:visited {
+body trem select-team .equipeList li a:visited {
   text-decoration: none;
 }
-body trem .container select-team ul li a:active {
+body trem select-team .equipeList li a:active {
   box-shadow: inset 0px 0px 8px black;
 }
 .navbar li i {
