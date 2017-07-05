@@ -4,8 +4,12 @@ html {
 
 body {
   height: 100%;
+  max-height: 100%;
   width: 100%;
+
   overflow-y: scroll;
+
+  padding-top: 51px;
 
   background-color: #8dd9ff;
 
@@ -18,27 +22,45 @@ body {
       margin-right: 8px;
     }
 
-
-    .player-good{
-      color:#00C703;
+    .player-good {
+      color: #00C703;
+      background-color: lightgreen;
     }
-    .player-hurt{
-      color:#D81300;
+    .player-hurt {
+      color: #D81300;
+      background-color: palevioletred;
     }
-    .player-tired{
+    .player-tired {
       color: #d86900;
+      background-color: lightsalmon;
     }
 
+    .noPad{
+      padding : 0 0 10px 0;
+      margin : 10px 0 0 0 ;
+    }
 
     .playersTable {
       float: left;
       width: 50%;
     }
 
+    .player-view-header-text {
+      color: black;
+    }
+
+    navig + .container-fluid {
+      padding: 8px;
+      top: 50px;
+      background-color: #8dd9ff;
+    }
+
     .container {
       height: 100%;
       width: 40%;
       margin-left: 30%;
+
+      padding-bottom: 15px;
 
       background-color: ghostwhite;
       box-shadow: 0px 0px 8px black;
@@ -98,38 +120,51 @@ body {
   }
 
   @media (max-width: 868px) {
+    .container {
+      width:100%;
+    }
+
     .navbar-header {
       float: none;
     }
-    .navbar-left,.navbar-right {
+
+    .navbar-left, .navbar-right {
       float: none !important;
     }
+
     .navbar-toggle {
       display: block;
     }
+
     .navbar-collapse {
       border-top: 1px solid transparent;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
     }
+
     .navbar-fixed-top {
       top: 0;
       border-width: 0 0 1px;
     }
+
     .navbar-collapse.collapse {
-      display: none!important;
+      display: none !important;
     }
+
     .navbar-nav {
       margin-top: 7.5px;
     }
-    .navbar-nav>li {
+
+    .navbar-nav > li {
       float: none;
     }
-    .navbar-nav>li>a {
+
+    .navbar-nav > li > a {
       padding-top: 10px;
       padding-bottom: 10px;
     }
-    .collapse.in{
-      display:block !important;
+
+    .collapse.in {
+      display: block !important;
     }
   }
 }

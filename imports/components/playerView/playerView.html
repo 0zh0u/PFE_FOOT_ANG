@@ -1,17 +1,25 @@
-<nav-header ></nav-header>
+<div class="modal fade" id="{{playerView.player._id}}-Pop" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="player-view-header-text modal-header">
+                Fiche de joueur
+            </div>
+            <div class="modal-body">
+                <div class="playerDetail">
+                    <ul>
+                        <li>Nom : {{playerView.player.lastname}}</li>
+                        <li>Prenom : {{playerView.player.firstname}}</li>
+                        <li class="player-{{playerView.player.condition_type}}">Condition : {{playerView.player.condition_type}}</li>
 
-<div class="container playerView">
-    <div class="playerDetail">
-        <ul>
-            <li>Nom : {{playerView.player.lastname}}</li>
-            <li>Prenom : {{playerView.player.firstname}}</li>
-            <li class="player-{{playerView.player.condition_type}}">Condition : {{playerView.player.condition_type}}</li>
-
-            <li>Actif : {{!playerView.player.condition_type}}</li>
-        </ul>
-    </div>
-    <button ng-click="playerView.test()"></button>
-    <div class="playerChart">
-        <canvas id="myChart" width="400" height="400"></canvas>
+                        <li>Actif : {{!playerView.player.condition_type}}</li>
+                        <li>Test : {{playerView.player._id}}</li>
+                    </ul>
+                </div>
+                <player-stat-chart player="playerView.player"></player-stat-chart>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
     </div>
 </div>

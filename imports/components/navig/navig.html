@@ -1,4 +1,4 @@
-<nav role="navigation" class="navbar navbar-default navbar-static-top">
+<nav role="navigation" class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
 
         <!-- Title -->
@@ -7,10 +7,10 @@
             <ul class="nav navbar-nav pull-left">
                 <li class="dropdown pull-left">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false">{{navHeader.currentTeam.name}} <span class="caret"></span></a>
+                       aria-expanded="false">{{ { true : $ctrl.currentteam.name, false : 'Aucune'}[$ctrl.currentteam != undefined]}}  <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li ng-repeat="team in navHeader.teams"><a href="/{{team._id}}/dashboard">{{team.name}}</a></li>
-                        <li ng-show="navHeader.teams.count() == 0">Aucune autre équipe</li>
+                        <li ng-repeat="team in $ctrl.teams"><a href="/{{team._id}}/dashboard">{{team.name}}</a></li>
+                        <li ng-show="$ctrl.teams.count() == 0">Aucune autre équipe</li>
                     </ul>
                 </li>
             </ul>
@@ -27,10 +27,10 @@
         <!-- Additional navbar items -->
         <div class="collapse navbar-collapse navbar-right">
             <ul class="nav navbar-nav pull-right">
-                <li><a href="#"><i class="fa fa-tachometer" aria-hidden="true"></i>Tableau de bord</a></li>
-                <li><a href="#"><i class="fa fa-flag" aria-hidden="true"></i>Gestion de l'équipe</a></li>
-                <li><a href="#"><i class="fa fa-users" aria-hidden="true"></i>Gestion des joueurs</a></li>
-                <li><a href="#"><i class="fa fa-bar-chart" aria-hidden="true"></i>Statistiques</a></li>
+                <li><a ng-href="/{{$ctrl.currentteam._id}}/dashboard"><i class="fa fa-tachometer" aria-hidden="true"></i>Tableau de bord</a></li>
+                <li><a ng-href="/{{$ctrl.currentteam._id}}/team"><i class="fa fa-flag" aria-hidden="true"></i>Gestion de l'équipe</a></li>
+                <li><a ng-href="/{{$ctrl.currentteam._id}}/players"><i class="fa fa-users" aria-hidden="true"></i>Gestion des joueurs</a></li>
+                <li><a ng-href="/{{$ctrl.currentteam._id}}/stats"><i class="fa fa-bar-chart" aria-hidden="true"></i>Statistiques</a></li>
             </ul>
         </div>
     </div>

@@ -3,8 +3,10 @@ html {
 }
 body {
   height: 100%;
+  max-height: 100%;
   width: 100%;
   overflow-y: scroll;
+  padding-top: 51px;
   background-color: #8dd9ff;
 }
 body trem {
@@ -15,37 +17,39 @@ body trem .panel-more {
   font-weight: bold;
   margin-right: 8px;
 }
+body trem .player-good {
+  color: #00C703;
+  background-color: lightgreen;
+}
+body trem .player-hurt {
+  color: #D81300;
+  background-color: palevioletred;
+}
+body trem .player-tired {
+  color: #d86900;
+  background-color: lightsalmon;
+}
+body trem .noPad {
+  padding: 0 0 10px 0;
+  margin: 10px 0 0 0 ;
+}
 body trem .playersTable {
   float: left;
   width: 50%;
 }
-
-.player a{
-  text-decoration: none;
+body trem .player-view-header-text {
+  color: black;
 }
-
-.playerDetail{
-  width:45%;
+body trem navig + .container-fluid {
+  padding: 8px;
+  top: 50px;
+  background-color: #8dd9ff;
 }
-
-.playerDetail{
-  width:45%;
-}
-
-.player-good #text{
-  color:#00C703;
-}
-.player-hurt #text{
-  color:#D81300;
-}
-.player-tired #text{
-  color: #d89d00;
-}
-
 body trem .container {
   height: 100%;
   width: 40%;
   margin-left: 30%;
+  padding-bottom: 15px;
   background-color: ghostwhite;
   box-shadow: 0px 0px 8px black;
 }
@@ -84,6 +88,9 @@ body trem .container select-team ul li a:active {
   margin-right: 4px;
 }
 @media (max-width: 868px) {
+  .navbar .container {
+    width: 100%;
+  }
   .navbar .navbar-header {
     float: none;
   }
@@ -103,7 +110,7 @@ body trem .container select-team ul li a:active {
     border-width: 0 0 1px;
   }
   .navbar .navbar-collapse.collapse {
-    display: none!important;
+    display: none !important;
   }
   .navbar .navbar-nav {
     margin-top: 7.5px;
