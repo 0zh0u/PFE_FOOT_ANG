@@ -1,0 +1,33 @@
+<navig currentteam="teamView.team"></navig>
+
+<div class="teamView container">
+
+    <ul class="as-sortable" ng-model="teamView.team.Players" as-sortable="teamView.dragControlListeners" >
+        <li class="as-sortable-item " as-sortable-item  ng-repeat="player in teamView.team.Players">
+            <div as-sortable-item-handle>
+                <span class="poste">
+                    {{player.post}}
+                </span>
+                <div class="name">
+                    {{player.firstname}} {{player.lastname}}
+                </div>
+            </div>
+        </li>
+    </ul>
+
+    <div class="row" ng-repeat="line in teamView.Formation">
+        <div class="col-5" ng-repeat="post in line">
+
+        </div>
+    </div>
+
+</div>
+
+<style>
+
+    .as-sortable-dragging{
+        border: 1px dotted #000 !important;
+        position: relative;
+    }
+</style>
+
