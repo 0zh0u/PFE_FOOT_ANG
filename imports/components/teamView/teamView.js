@@ -1,7 +1,7 @@
 import angular from "angular";
 import angularMeteor from "angular-meteor";
 import uiRouter from "angular-ui-router";
-import drag from "meteor/s2corp:angular-drag-and-drop-lists";
+import drag from "ng-sortable";
 import {Teams} from "../../api/Teams";
 import {name as Navig} from "../navig/navig";
 
@@ -22,6 +22,29 @@ class TeamViewCtrl {
                 return Teams.findOne({_id: $stateParams.teamId});
             }
         });
+
+        $scope.Formation ={
+            forward : [{},{},{},{},{}],
+            forwardMiddle : [{},{},{},{},{}],
+            midle : [{},{},{},{},{}],
+            midleBack : [{},{},{},{},{}],
+            back : [{},{},{},{},{}],
+            goal :[{},{},{},{},{}]
+        };
+
+        $scope.dragControlListeners = {
+            accept: function (sourceItemHandleScope, destSortableScope) {return boolean},
+            itemMoved: function (event) {},
+                orderChanged: function(event) {},
+                    containment: '#board',
+                    clone: true ,
+                    allowDuplicates: false
+                };
+
+        $scope.dragControlListeners1 = {
+            containment: '#board',
+            allowDuplicates: true
+        };
     }
 }
 
@@ -30,7 +53,8 @@ const name = 'teamView'
 export default angular.module(name, [
     angularMeteor,
     uiRouter,
-    Navig
+    Navig,
+    drag
 ])
     .component(name, {
         templateUrl: template,
