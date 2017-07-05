@@ -11,7 +11,6 @@ class PlayerStatChart {
             if (!player) return;
             var stats = [];
             var labels = [];
-            console.log("teqst :" + JSON.stringify(player.Stats));
             for (var i = 0; i < player.Stats.length; ++i) {
                 var stat = player.Stats[i];
 
@@ -25,7 +24,7 @@ class PlayerStatChart {
             $scope.chart = new Chart(canvas, {
                 type: 'radar',
                 data: {
-                    labels: ["Speed", "Control", "Teamwork", "Attack", "Defense"],
+                    labels: labels,
                     datasets: [{
 
                         data: stats,

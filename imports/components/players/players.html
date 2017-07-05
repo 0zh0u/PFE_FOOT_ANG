@@ -8,9 +8,10 @@
             </h1>
         </div>
         <p>
-            <button ng-click="$state.go('/teams')" type="button" class="btn btn-default btn-sm">
+            <button ng-click="$state.go('/teams')" type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#playerCreate-Pop">
                 <i class="fa fa-plus"></i> Ajouter un joueur
             </button>
+            <player-create></player-create>
         </p>
         <div ng-repeat="player in $ctrl.team.Players">
             <player-row player="player">

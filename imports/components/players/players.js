@@ -2,6 +2,7 @@ import angular from "angular";
 import angularMeteor from "angular-meteor";
 import uiRouter from "angular-ui-router";
 import {name as PlayerUpdateCtrl} from "../playerUpdate/playerUpdate";
+import {name as PlayerCreateCtrl} from "../playerCreate/playerCreate";
 import {Teams} from "../../api/Teams";
 import {name as Navig} from "../navig/navig";
 
@@ -28,6 +29,7 @@ export default angular.module(name, [
     angularMeteor,
     uiRouter,
     PlayerUpdateCtrl,
+    PlayerCreateCtrl,
     Navig
 ])
     .component(name, {
