@@ -1,7 +1,15 @@
-<div class="player player-{{playerRow.player.condition_type}}">
+<div class="player flex-container player-{{playerRow.player.condition_type}}">
 
     <ng-transclude></ng-transclude>
+    <i ng-if="playerRow.player.condition_type == 'good'" class="fa fa-thumbs-up condition" aria-hidden="true"></i>
+    <i ng-if="playerRow.player.condition_type == 'hurt'" class="fa fa-medkit condition" aria-hidden="true"></i>
+    <i ng-if="playerRow.player.condition_type == 'tired'" class="fa fa-power-off condition" aria-hidden="true"></i>
     <span id="text">
     {{playerRow.player.firstname}} {{playerRow.player.lastname}}
+    </span>
+    <span class="post ">
+        <span id="post" >
+        {{playerRow.player.post | formatPost }}
+        </span>
     </span>
 </div>
