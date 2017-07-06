@@ -6,6 +6,11 @@ html {
   display : flex;
   align-items:baseline;
 }
+
+.flex-container-col{
+  display:flex;
+  flex-direction: column;
+}
 .flex-item{
 
 }
@@ -19,7 +24,7 @@ body {
 
   padding-top: 51px;
 
-  background-color: #8dd9ff;
+  background-color: #eee;
 
   trem {
     height: 100%;
@@ -43,6 +48,37 @@ body {
     .noPad{
       padding : 0 0 10px 0;
       margin : 10px 0 0 0 ;
+    }
+
+    team-view{
+      .flex-container{
+
+      }
+      .flex-container-col{
+        justify-content: center;
+        display: flex;
+        height:350px;
+        
+      }
+      .post{
+        flex:1;
+      }
+      player-post{
+
+        .fa-plus-circle{
+          padding: 0 1.5em 0 0;
+          font-size : 5em;
+        }
+      }
+    }
+
+    team-creat{
+      player-post{
+        .icon{
+          font-size:3em;
+        }
+
+      }
     }
 
     dashboard{
@@ -115,7 +151,7 @@ body {
     navig + .container-fluid {
       padding: 8px;
       top: 50px;
-      background-color: #8dd9ff;
+      background-color: #eee;
     }
 
     .container {

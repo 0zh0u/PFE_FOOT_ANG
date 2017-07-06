@@ -3,13 +3,13 @@
 <div class="container-fluid">
     <div class="container">
         <div class="page-header">
-            <h1>Evenements à venir<br>
+            <h1>Evénements à venir<br>
                 <small>{{dashboard.team.name}}</small>
             </h1>
         </div>
         <p>
             <button ng-click="$state.go('/teams')" type="button" class="btn btn-default btn-sm">
-                <i class="fa fa-plus"></i> Ajouter nouvel event TODO
+                <i class="fa fa-plus"></i> <span>Ajouter nouvel événement<span>
             </button>
         </p>
         <div ng-repeat="event in dashboard.team.Events" class="panel"
@@ -40,7 +40,7 @@
 
                             <div class="table playersTable">
                                 <p>{{event.team_b}}</p>
-                                <p ng-repeat="player in event.Players">
+                                <p ng-repeat="player in event.PlayersTeamB">
                                     <player-row player="player">
                                         <button ng-click="" type="button" class="btn btn-default btn-xs" aria-label="Left Align" data-toggle="modal" data-target="#{{player._id}}-Pop">
                                             <span class="fa fa-search-plus" aria-hidden="true"></span>

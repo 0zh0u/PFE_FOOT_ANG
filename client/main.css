@@ -5,13 +5,17 @@ html {
   display: flex;
   align-items: baseline;
 }
+.flex-container-col {
+  display: flex;
+  flex-direction: column;
+}
 body {
   height: 100%;
   max-height: 100%;
   width: 100%;
   overflow-y: scroll;
   padding-top: 51px;
-  background-color: #8dd9ff;
+  background-color: #eee;
 }
 body trem {
   height: 100%;
@@ -33,6 +37,21 @@ body trem .player-tired ng-binding {
 body trem .noPad {
   padding: 0 0 10px 0;
   margin: 10px 0 0 0 ;
+}
+body trem team-view .flex-container-col {
+  justify-content: center;
+  display: flex;
+  height: 350px;
+}
+body trem team-view .post {
+  flex: 1;
+}
+body trem team-view player-post .fa-plus-circle {
+  padding: 0 1.5em 0 0;
+  font-size: 5em;
+}
+body trem team-creat player-post .icon {
+  font-size: 3em;
 }
 body trem dashboard .loc.open {
   margin-bottom: 1em;
@@ -94,7 +113,7 @@ body trem .player-view-header-text {
 body trem navig + .container-fluid {
   padding: 8px;
   top: 50px;
-  background-color: #8dd9ff;
+  background-color: #eee;
 }
 body trem .container {
   height: 100%;

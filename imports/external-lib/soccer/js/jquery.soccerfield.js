@@ -99,29 +99,7 @@
         //private function to reveal players
         soccerfield.revealPlayers = function () {
 
-            if (soccerfield.options.players.sim) {
-                //reveal simultaneously
-                $(".soccerfield-player").fadeIn(soccerfield.options.players.fadeTime, function () {
-                    setTimeout(function () {
-                        soccerfield.options.players.onReveal();
-                    }, soccerfield.options.players.fadeTime);
-                });
-            } else {
-                var $playerDivs = $element.find(".soccerfield-player"), i = 1, c = 0, timeout = soccerfield.options.players.timeout;
-                //reveal one by one
-                $playerDivs.each(function () {
-                    $(this).delay(timeout * i).fadeIn(soccerfield.options.players.fadeTime, function () {
-                        c++;
-                        if (c === soccerfield.data.length) {
-                            setTimeout(function () {
-                                soccerfield.options.players.onReveal();
-                            }, soccerfield.options.players.fadeTime);
-                        }
-                    });
-                    i++;
-                    return true;
-                });
-            }
+
         };
 
         soccerfield.init();
