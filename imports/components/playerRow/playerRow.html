@@ -7,9 +7,12 @@
     <span id="text">
     {{playerRow.player.firstname}} {{playerRow.player.lastname}}
     </span>
-    <span class="post ">
-        <span id="post" >
+    <span class="post" >
+        <span id="post" ng-show="playerRow.options === undefined || playerRow.options.post == true" >
         {{playerRow.player.post | formatPost }}
+        </span>
+        <span id="post" ng-show="playerRow.options.post == false" >
+        {{playerRow.player.post | formatPostShort }}
         </span>
     </span>
 </div>

@@ -6,9 +6,28 @@ ul {
   margin: 0;
   padding: 0;
 }
+.flex {
+  flex: 1;
+}
+.flexx {
+  flex: 2;
+}
+.flexxx {
+  flex: 3;
+}
+.flexxxx {
+  flex: 4;
+}
+.flexxxxx {
+  flex: 5;
+}
 .flex-container {
   display: flex;
   align-items: baseline;
+}
+.flex-container.flex-container-center {
+  display: flex;
+  align-items: center;
 }
 .flex-container-col {
   display: flex;
@@ -24,6 +43,48 @@ body {
 }
 body trem {
   height: 100%;
+}
+body trem .player {
+  padding: 1em 0 1em 0;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+body trem .player ng-transclude {
+  flex: 1;
+  text-align: center;
+}
+body trem .player i {
+  flex: 1;
+  text-align: center;
+}
+body trem .player #text {
+  flex: 4;
+  text-align: center;
+  padding-left: 15px;
+}
+body trem .player .post {
+  flex: 3;
+  text-align: center;
+}
+body trem .fa-thumbs-up {
+  color: #09ab09;
+  font-size: 1.5em;
+}
+body trem .fa-medkit {
+  color: #dc0600;
+  font-size: 1.5em;
+}
+body trem .fa-power-off {
+  color: #dc8700;
+  font-size: 1.5em;
+}
+body trem .fa-search-plus {
+  font-size: 1.5em;
+  padding: 3px 2px 3px 2px;
+}
+body trem .ng-scope .condition {
+  border-left: 1px solid #ccc;
+  padding-left: 5px;
 }
 body trem .panel-more {
   color: white;
@@ -41,19 +102,92 @@ body trem .player-tired ng-binding {
 }
 body trem .noPad {
   padding: 0 0 10px 0;
-  margin: 10px 0 0 0 ;
+  margin: 10px 0 0 0;
 }
 body trem team-view .flex-container-col {
   justify-content: center;
   display: flex;
-  height: 350px;
+  height: 600px;
+  position: relative;
+}
+body trem team-view .soccerfield-field-field-img {
+  z-index: 0;
+  height: 600px;
+  position: relative;
+  background-image: url("img/soccerfield_green.png");
+  width: 900px;
 }
 body trem team-view .post {
   flex: 1;
+  flex-grow: 0;
+}
+body trem team-view .disabled {
+  display: none;
+}
+body trem team-view player-post {
+  z-index: 3;
+  position: relative;
 }
 body trem team-view player-post .fa-plus-circle {
-  padding: 0 1.5em 0 0;
+  color: #02bbc7;
   font-size: 5em;
+}
+body trem team-view player-post .pos {
+  text-align: center;
+}
+body trem team-view player-post .list {
+  width: 133px;
+  height: 100px;
+  background-color: #FFF;
+  overflow-y: scroll;
+}
+body trem team-view player-post .playerPost {
+  width: 133px;
+  height: 100px;
+}
+body trem team-view player-post .playerDetail {
+  width: 133px;
+  height: 100px;
+}
+body trem team-view player-post .playerDetail #playerAvatar {
+  font-size: 3em;
+  color: FFF;
+  text-align: center;
+}
+body trem team-view player-post .playerDetail #playerInfo {
+  display: flex;
+  border-radius: 10px 2px 10px 2px;
+  -moz-border-radius: 10px 2px 10px 2px;
+  -webkit-border-radius: 10px 2px 10px 2px;
+  border: 1px solid #FFF;
+  background-color: #FFF;
+}
+body trem team-view player-post .playerDetail #playerInfo #name {
+  flex-grow: 2;
+  text-align: center;
+}
+body trem team-view player-post .playerDetail #playerInfo #post {
+  text-align: center;
+  flex-grow: 1;
+  margin-left: 3px;
+  border-right: 1px solid #ccc;
+}
+body trem team-view player-post .playerDetail #playerInfo #condition {
+  flex-grow: 1;
+  margin-rigth: 3px;
+}
+body trem team-view player-post .playerList {
+  height: 15em;
+}
+body trem team-view player-post player-row .player:hover {
+  background-color: rgba(0, 226, 30, 0.16);
+}
+body trem team-view player-post player-row .condition {
+  padding-right: 10px;
+}
+body trem team-view player-post player-row #text {
+  flex: 8 !important;
+  padding-left: 0 !important;
 }
 body trem team-creat player-post .icon {
   font-size: 3em;
@@ -64,53 +198,12 @@ body trem dashboard .loc.open {
 body trem dashboard .match {
   margin-bottom: 1em;
 }
-body trem .playersTable {
+body trem dashboard .playersTable {
   float: left;
   width: 50%;
   display: table;
   padding: 1em;
   border-top: 1px solid #ccc;
-}
-body trem .playersTable .player {
-  padding: 1em 0 1em 0  ;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-}
-body trem .playersTable .player ng-transclude {
-  flex: 1;
-  text-align: center;
-}
-body trem .playersTable .player i {
-  flex: 1;
-  text-align: center;
-}
-body trem .playersTable .player #text {
-  flex: 4;
-  text-align: center;
-  padding-left: 15px;
-}
-body trem .playersTable .player .post {
-  flex: 3;
-  text-align: center;
-}
-body trem .playersTable .fa-thumbs-up {
-  color: #09ab09;
-  font-size: 1.5em;
-}
-body trem .playersTable .fa-medkit {
-  color: #dc0600;
-  font-size: 1.5em;
-}
-body trem .playersTable .fa-power-off {
-  color: #dc8700;
-  font-size: 1.5em;
-}
-body trem .playersTable .fa-search-plus {
-  font-size: 1.5em;
-  padding: 3px 2px 3px 2px;
-}
-body trem .playersTable .ng-scope .condition {
-  border-right: 1px solid #ccc;
 }
 body trem .player-view-header-text {
   color: black;
@@ -212,7 +305,7 @@ player-create .modal-body .chart-area {
 }
 player-create .modal-body form {
   max-height: 500px;
-  border-right: 1px solid #eee;
+  border-left: 1px solid #eee;
   padding-right: 8px;
   overflow: auto;
 }

@@ -1,4 +1,35 @@
 
-<div class="playerPost icon ">
-    <i class="fa fa-plus-circle" aria-hidden="true"></i>
+
+<div class="playerPost">
+    <div class="pos" >
+        <a type="button" ng-hide="hideBtn" ng-click="hideBtn=true"  class="addPlayer fa fa-plus-circle icon">
+        </a>
+    </div>
+    <div class="list" ng-hide="!hideBtn || playerPost.player != undefined" >
+            <ul class="playerList">
+                <li ng-click="playerPost.addPlayer(player)" ng-repeat="player in playerPost.team.Players">
+                    <player-row player="player" options="{post:false}"></player-row>
+                    </a>
+                </li>
+                <li ng-show="playerPost.team.Players.count() == 0">Aucuns joueurs</li>
+            </ul>
+    </div>
+    <div class="playerDetail" ng-show="playerPost.player != undefined">
+        <div id="playerAvatar">
+            <i class="fa fa-user fa-3" aria-hidden="true"></i>
+        </div>
+        <div id="playerInfo">
+            <div id="post">
+                {{playerPost.player.post | formatPostShort}}
+            </div>
+            <div id="name">
+                {{playerPost.player.firstname[0] | uppercase}}.{{playerPost.player.lastname}}
+            </div>
+            <div id="condition">
+                <i ng-if="playerPost.player.condition_type == 'good'" class="fa fa-thumbs-up condition" aria-hidden="true"></i>
+                <i ng-if="playerPost.player.condition_type == 'hurt'" class="fa fa-medkit condition" aria-hidden="true"></i>
+                <i ng-if="playerPost.player.condition_type == 'tired'" class="fa fa-power-off condition" aria-hidden="true"></i>
+            </div>
+        </div>
+    </div>
 </div>

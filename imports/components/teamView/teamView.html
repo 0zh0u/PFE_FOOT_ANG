@@ -1,16 +1,16 @@
 <navig currentteam="teamView.team"></navig>
 
+
 <div class="container-fluid">
-    <div class="teamView container">
-
-        <img class="soccerfield-field-field-img" src="img/soccerfield_green.png">
-
-
-
-        <div class="flex-container">
-            <div class="flex-container-col" ng-repeat="line in teamView.Formation">
-                <div class="post" ng-repeat="post in line.rows">
-                    <player-post></player-post>
+    <div class="container flex-container flex-container-center ">
+        <div class="teamView flex-1">
+            <div class="soccerfield-field-field-img" >
+                <div class="flex-container flex-container-center">
+                    <div class="flex-container-col" ng-repeat="line in teamView.Formation">
+                        <div class="post" ng-class="{ 'disabled' : post.disabled}"  ng-repeat="post in line.rows">
+                            <player-post post="post" team="teamView.team"></player-post>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

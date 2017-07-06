@@ -14,12 +14,12 @@ class TeamViewCtrl {
 
 
         $scope.Formation =[
-            {rows: [{},{},{},{},{}]},
-            {rows : [{},{},{},{},{}]},
-            {rows : [{},{},{},{},{}]},
-            {rows : [{},{},{},{},{}]},
-            {rows : [{},{},{},{},{}]},
-            {rows :[{},{},{},{},{}]}
+            {rows: [{disabled: "true"},{disabled: "true"},{field: "GK"},{disabled: "true"},{disabled: "true"}]},
+            {rows : [{field: "L_B"},{field: "LC_B"},{field: "C_B"},{field: "RC_B"},{field: "R_B"}]},
+            {rows : [{field: "L_DM"},{field: "LC_DM"},{field: "C_DM"},{field: "RC_DM"},{field: "R_DM"}]},
+            {rows : [{field: "L_M"},{field: "LC_M"},{field: "C_M"},{field: "RC_M"},{field: "R_M"}]},
+            {rows : [{field: "L_AM"},{field: "LC_AM"},{field: "C_AM"},{field: "RC_AM"},{field: "R_AM"}]},
+            {rows :[{disabled: "true"},{field: "LC_F"},{field: "C_F"},{field: "RC_F"},{disabled: "true"}]}
         ];
         $scope.viewModel(this);
 

@@ -6,10 +6,31 @@ ul {
   list-style: none;margin:0;padding:0;
 }
 
+.flex{
+  flex:1;
+}
+.flexx{
+  flex:2;
+}
+.flexxx{
+  flex:3;
+}
+.flexxxx{
+  flex:4;
+}
+.flexxxxx{
+  flex:5;
+}
 .flex-container{
   display : flex;
   align-items:baseline;
+  &.flex-container-center{
+    display : flex;
+    align-items:center;
+  }
+
 }
+
 
 .flex-container-col{
   display:flex;
@@ -33,57 +54,180 @@ body {
   trem {
     height: 100%;
 
+    .player {
+      padding: 1em 0 1em 0;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      ng-transclude {
+        flex: 1;
+        text-align: center;
+      }
+      i {
+        flex: 1;
+        text-align: center;
+      }
+      #text {
+        flex: 4;
+        text-align: center;
+        padding-left: 15px;
+      }
+      .post {
+        flex: 3;
+        text-align: center;
+      }
+    }
+    .fa-thumbs-up {
+      color: #09ab09;
+      font-size: 1.5em;
+    }
+    .fa-medkit {
+      color: #dc0600;
+      font-size: 1.5em;
+    }
+    .fa-power-off {
+      color: #dc8700;
+      font-size: 1.5em;
+    }
+    .fa-search-plus {
+      font-size: 1.5em;
+      padding: 3px 2px 3px 2px;
+    }
+    .ng-scope .condition {
+      border-left: 1px solid #ccc;
+      padding-left : 5px;
+    }
+    #post {
+      //margin-left:2em;
+    }
+
     .panel-more {
       color: white;
       font-weight: bold;
       margin-right: 8px;
     }
 
-    .player-good ng-binding{
+    .player-good ng-binding {
       color: #00C703;
     }
-    .player-hurt ng-binding{
+    .player-hurt ng-binding {
       color: #D81300;
     }
-    .player-tired ng-binding{
+    .player-tired ng-binding {
       color: #d86900;
     }
 
-    .noPad{
-      padding : 0 0 10px 0;
-      margin : 10px 0 0 0 ;
+    .noPad {
+      padding: 0 0 10px 0;
+      margin: 10px 0 0 0;
     }
 
-    team-view{
-      .flex-container{
+    team-view {
+
+      .flex-container {
 
       }
-      .flex-container-col{
+
+      .flex-container-col {
         justify-content: center;
         display: flex;
-        height:350px;
-        
+        height: 600px;
+        position: relative;
       }
-      .post{
-        flex:1;
+      .soccerfield-field-field-img {
+        z-index: 0;
+        height: 600px;
+        position: relative;
+        background-image: url("img/soccerfield_green.png");
+        width: 900px;
+      }
+      .post {
+        flex: 1;
+        flex-grow: 0;
+      }
+      .disabled {
+        display: none;
       }
       player-post{
+        z-index: 3;
+        position: relative;
+        .fa-plus-circle {
+          color: #02bbc7;
+          font-size: 5em;
+        }
+        .pos {
+          text-align: center;
+        }
+        .list{
+          width : 133px;
+          height: 100px;
+          background-color: #FFF;
 
-        .fa-plus-circle{
-          padding: 0 1.5em 0 0;
-          font-size : 5em;
+          overflow-y: scroll;
+        }
+        .playerPost{
+          width : 133px;
+          height: 100px;
+        }
+        .playerDetail{
+          width : 133px;
+          height: 100px;
+          #playerAvatar {
+            font-size:3em;
+            color:FFF;
+            text-align: center;
+          }
+
+          #playerInfo{
+            display: flex;
+            border-radius: 10px 2px 10px 2px;
+            -moz-border-radius: 10px 2px 10px 2px;
+            -webkit-border-radius: 10px 2px 10px 2px;
+            border: 1px solid #FFF;
+            background-color: #FFF;
+            #name{
+              flex-grow:2;
+              text-align: center;
+            }
+            #post{
+              text-align: center;
+              flex-grow:1;
+              margin-left:3px;
+              border-right : 1px solid #ccc
+            }
+            #condition{
+              flex-grow:1;
+              margin-rigth:3px;
+            }
+          }
+        }
+        .playerList{
+          height:15em;
+        }
+        player-row{
+          .player:hover{
+            background-color: rgba(0, 226, 30, 0.16);
+          }
+          .condition {
+            padding-right: 10px;
+          }
+          #text{
+            flex:8 !important;
+            padding-left: 0 !important;
+          }
         }
       }
     }
 
-    team-creat{
-      player-post{
-        .icon{
-          font-size:3em;
+    team-creat {
+      player-post {
+        .icon {
+          font-size: 3em;
         }
 
       }
     }
+
+
 
     dashboard{
       .loc.open{
@@ -92,61 +236,16 @@ body {
       .match{
         margin-bottom: 1em;
       }
-    }
-
-    .playersTable {
-      float: left;
-      width: 50%;
-      display: table;
-      padding:1em;
-      border-top : 1px solid #ccc;
-
-
-      .player{
-        padding: 1em 0 1em 0  ;
-        border: 1px solid #ccc;
-        border-radius: 3px;
-        ng-transclude{
-          flex:1;
-          text-align: center;
-        }
-        i{
-          flex:1;
-          text-align: center;
-        }
-        #text{
-          flex:4;
-          text-align: center;
-          padding-left: 15px;
-        }
-        .post{
-          flex:3;
-          text-align: center;
-        }
-      }
-      .fa-thumbs-up{
-        color: #09ab09;
-        font-size:1.5em;
-      }
-      .fa-medkit{
-        color: #dc0600;
-        font-size:1.5em;
-      }
-      .fa-power-off{
-        color: #dc8700;
-        font-size:1.5em;
-      }
-      .fa-search-plus{
-        font-size:1.5em;
-        padding: 3px 2px 3px 2px;
-      }
-      .ng-scope .condition{
-        border-right: 1px solid #ccc;
-      }
-      #post{
-        //margin-left:2em;
+      .playersTable {
+        float: left;
+        width: 50%;
+        display: table;
+        padding:1em;
+        border-top : 1px solid #ccc;
       }
     }
+
+
 
     .player-view-header-text {
       color: black;
@@ -287,7 +386,7 @@ player-create {
     form {
       max-height: 500px;
 
-      border-right: 1px solid #eee;
+      border-left: 1px solid #eee;
       padding-right: 8px;
 
       overflow: auto;
