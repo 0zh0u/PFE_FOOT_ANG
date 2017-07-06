@@ -2,6 +2,10 @@ html {
   height: 100%;
 }
 
+ul {
+  list-style: none;margin:0;padding:0;
+}
+
 .flex-container{
   display : flex;
   align-items:baseline;
@@ -165,6 +169,7 @@ body {
       box-shadow: 0px 0px 8px black;
 
     }
+
     select-team {
       .equipeList{
         .badge{
@@ -266,6 +271,26 @@ body {
 
     .collapse.in {
       display: block !important;
+    }
+  }
+}
+
+player-create {
+  .modal-body {
+    form,.chart-area {
+      width: 49%;
+      display: inline-block;
+      vertical-align: top;
+
+    }
+
+    form {
+      max-height: 500px;
+
+      border-right: 1px solid #eee;
+      padding-right: 8px;
+
+      overflow: auto;
     }
   }
 }
