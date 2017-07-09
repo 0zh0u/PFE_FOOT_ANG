@@ -28,7 +28,7 @@
                             <p>{{dashboard.team._id}}</p>
                             <md-list>
                                 <md-list-item ng-repeat="player in dashboard.team.Players">
-                                    <md-button ng-click="dashboard.showPlayerDetail($event, player._id)">
+                                    <md-button ng-click="dashboard.showDialog($event, player._id)">
                                         <i class="fa fa-2x fa-search-plus"></i>
                                     </md-button>
                                     <div flex class="md-list-item-text">

@@ -26,13 +26,10 @@ class DashboardCtrl {
             }
         });
 
-        this.showPlayerDetail = function(ev, id) {
-            console.log("test dial : " +id);
+        this.showDialog = function(ev, id) {
             $mdDialog.show({
-                // controller: DashboardCtrl,
                 contentElement: '#'+ id +'-Pop',
                 parent: angular.element(document.body),
-                // targetEvent: ev,
                 clickOutsideToClose: true
             });
         };
