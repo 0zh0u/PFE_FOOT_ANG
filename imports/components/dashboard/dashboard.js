@@ -8,7 +8,7 @@ import {Teams} from "../../api/Teams";
 import template from "./dashboard.html";
 
 class DashboardCtrl {
-    constructor($scope,$stateParams) {
+    constructor($scope,$stateParams, $mdDialog) {
         'ngInject';
 
         $scope.viewModel(this);
@@ -25,6 +25,17 @@ class DashboardCtrl {
                 return Teams.findOne({_id: $stateParams.teamId});
             }
         });
+
+        this.showPlayerDetail = function(ev, id) {
+            console.log("test dial : " +id);
+            $mdDialog.show({
+                // controller: DashboardCtrl,
+                contentElement: '#'+ id +'-Pop',
+                parent: angular.element(document.body),
+                // targetEvent: ev,
+                clickOutsideToClose: true
+            });
+        };
     }
 }
 
@@ -39,7 +50,7 @@ export default angular.module(name, [
     .component(name, {
         templateUrl: template,
         controllerAs: name,
-        controller: ['$scope',"$stateParams",DashboardCtrl]
+        controller: ['$scope',"$stateParams", '$mdDialog', DashboardCtrl]
     })
     .config(function ($stateProvider) {
         'ngInject';

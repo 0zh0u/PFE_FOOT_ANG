@@ -1,46 +1,42 @@
-<nav role="navigation" class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
+<md-sidenav md-is-open="navig.menuOpened" class="md-whiteframe-4dp">
+    <md-list>
+        <md-input-container>
+            <label>Choix d'une équipe</label>
+            <md-select ng-model="navig.currentTeam">
+                <md-option ng-repeat="team in navig.teams" ng-value="team" ng-disabled="team._id === navig.currentTeam._id">
+                    {{team.name}}
+                </md-option>
+            </md-select>
+        </md-input-container>
+        <any ng-if="navig.currentTeam">
+            <md-list-item>
+                <md-button href="/{{navig.currentTeam._id}}/dashboard">
+                    <i class="fa fa-tachometer" aria-hidden="true"></i>
+                    Tableau de bord
+                </md-button>
+            </md-list-item>
 
-        <!-- Title -->
-        <div class="navbar-header pull-left">
-            <a href="/" class="navbar-brand">PFE Trem</a>
-            <ul class="nav navbar-nav pull-left">
-                <li class="dropdown pull-left">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false">{{ { true : $ctrl.currentteam.name, false : 'Aucune'}[$ctrl.currentteam !=
-                        undefined]}} <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li ng-repeat="team in $ctrl.teams"><a href="/{{team._id}}/dashboard">{{team.name}}</a></li>
-                        <li ng-show="$ctrl.teams.count() == 0">Aucune autre équipe</li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
+            <md-list-item>
+                <md-button href="/{{navig.currentTeam._id}}/team">
+                    <i class="fa fa-flag" aria-hidden="true"></i>
+                    Gestion de l'équipe
+                </md-button>
+            </md-list-item>
 
-        <any ng-if="$ctrl.currentteam">
-            <div class="navbar-header">
-                <!-- Required bootstrap placeholder for the collapsed menu -->
-                <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle"><span
-                        class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span
-                        class="icon-bar"></span><span
-                        class="icon-bar"></span>
-                </button>
-            </div>
+            <md-list-item>
+                <md-button href="/{{navig.currentTeam._id}}/players">
+                    <i class="fa fa-users" aria-hidden="true"></i>
+                    Gestion des joueurs
+                </md-button>
+            </md-list-item>
 
-            <!-- Additional navbar items -->
-            <div class="collapse navbar-collapse navbar-right">
-                <ul class="nav navbar-nav pull-right">
-                    <li><a ng-href="/{{$ctrl.currentteam._id}}/dashboard"><i class="fa fa-tachometer"
-                                                                             aria-hidden="true"></i>Tableau de bord</a>
-                    </li>
-                    <li><a ng-href="/{{$ctrl.currentteam._id}}/team"><i class="fa fa-flag" aria-hidden="true"></i>Gestion
-                        de l'équipe</a></li>
-                    <li><a ng-href="/{{$ctrl.currentteam._id}}/players"><i class="fa fa-users" aria-hidden="true"></i>Gestion
-                        des joueurs</a></li>
-                    <li><a ng-href="/{{$ctrl.currentteam._id}}/stats"><i class="fa fa-bar-chart" aria-hidden="true"></i>Statistiques</a>
-                    </li>
-                </ul>
-            </div>
+            <md-list-item>
+                <md-button href="/{{navig.currentTeam._id}}/stats">
+                    <i class="fa fa-bar-chart" aria-hidden="true"></i>
+                    Statistiques
+                </md-button>
+            </md-list-item>
         </any>
-    </div>
-</nav>
+
+    </md-list>
+</md-sidenav>

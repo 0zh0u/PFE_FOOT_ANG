@@ -9,7 +9,7 @@ import {name as Navig} from "../navig/navig";
 import template from "./players.html";
 
 class PlayersCtrl {
-    constructor($scope,$stateParams) {
+    constructor($scope,$stateParams,$mdDialog) {
 
         $scope.viewModel(this);
 
@@ -20,6 +20,14 @@ class PlayersCtrl {
                 return Teams.findOne({_id: $stateParams.teamId});
             }
         });
+
+        this.showDialog = function(ev, id) {
+            $mdDialog.show({
+                contentElement: '#'+ id +'-Pop',
+                parent: angular.element(document.body),
+                clickOutsideToClose: true
+            });
+        };
     }
 }
 
@@ -34,7 +42,8 @@ export default angular.module(name, [
 ])
     .component(name, {
         templateUrl: template,
-        controller : ["$scope","$stateParams",PlayersCtrl],
+        controller : ["$scope","$stateParams",'$mdDialog',PlayersCtrl],
+        controllerAs: name,
         bindings: {
             player: "="
         }

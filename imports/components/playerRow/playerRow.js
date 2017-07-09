@@ -5,7 +5,7 @@ import {name as PlayerViewCtrl} from "../playerView/playerView";
 import template from "./playerRow.html";
 
 class PlayerRow {
-    constructor($scope,player) {
+    constructor($scope,$mdDialog, player) {
 
         $scope.viewModel(this);
 
@@ -31,16 +31,18 @@ export default angular.module(name, [
         templateUrl: template,
         transclude: true,
         controllerAs: name,
-        controller : ["$scope",PlayerRow],
+        controller : ["$scope",'$mdDialog', PlayerRow],
         bindings: {
             player: "=",
             options : "="
         }
     }).filter("formatPost", function(){
             return function(x) {
-                console.log(x);
                 var side;
                 var post;
+
+                if(!x)
+                    return "Non placé";
 
                 if (x.includes("L") || x.includes("LC_")) {
                     side = "Gauche";

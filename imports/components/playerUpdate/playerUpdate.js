@@ -4,8 +4,12 @@ import angularMeteor from "angular-meteor";
 import template from "./playerUpdate.html";
 
 class PlayerUpdateCtrl {
-    constructor($scope) {
+    constructor($scope, $mdDialog) {
+        $scope.viewModel(this);
 
+        this.closeDialog = function() {
+            $mdDialog.hide();
+        };
     }
 }
 
@@ -17,7 +21,8 @@ export default angular.module(name, [
 ])
     .component(name, {
         templateUrl: template,
-        controller: ['$scope', PlayerUpdateCtrl],
+        controller: ['$scope', '$mdDialog', PlayerUpdateCtrl],
+        controllerAs: name,
         bindings: {
             player: "="
         }

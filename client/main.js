@@ -1,8 +1,5 @@
 import angular from "angular";
 import angularMeteor from "angular-meteor";
-import "bootstrap/dist/css/bootstrap.css";
-import "../imports/external-lib/soccer/css/soccerfield.css";
-import "../imports/external-lib/soccer/js/jquery.soccerfield.js";
 import trem from "../imports/components/trem/trem";
 import {Teams} from "../imports/api/Teams";
 

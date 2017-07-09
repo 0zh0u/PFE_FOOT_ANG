@@ -6,6 +6,10 @@ ul {
   margin: 0;
   padding: 0;
 }
+.md-fab i {
+  font-size: 24px;
+  line-height: 56px;
+}
 .flex {
   flex: 1;
 }
@@ -34,20 +38,10 @@ ul {
   flex-direction: column;
 }
 body {
-  height: 100%;
-  max-height: 100%;
-  width: 100%;
   overflow-y: scroll;
-  padding-top: 51px;
-  background-color: #eee;
 }
 body trem {
   height: 100%;
-}
-body trem .player {
-  padding: 1em 0 1em 0;
-  border: 1px solid #ccc;
-  border-radius: 3px;
 }
 body trem .player ng-transclude {
   flex: 1;
@@ -83,7 +77,6 @@ body trem .fa-search-plus {
   padding: 3px 2px 3px 2px;
 }
 body trem .ng-scope .condition {
-  border-left: 1px solid #ccc;
   padding-left: 5px;
 }
 body trem .panel-more {
@@ -221,6 +214,9 @@ body trem .container {
   background-color: ghostwhite;
   box-shadow: 0px 0px 8px black;
 }
+body trem select-team md-grid-tile {
+  background-color: #b9f6ca;
+}
 body trem select-team .equipeList .badge {
   margin-left: 5px;
 }
@@ -296,16 +292,4 @@ body trem select-team .equipeList li a:active {
   .navbar .collapse.in {
     display: block !important;
   }
-}
-player-create .modal-body form,
-player-create .modal-body .chart-area {
-  width: 49%;
-  display: inline-block;
-  vertical-align: top;
-}
-player-create .modal-body form {
-  max-height: 500px;
-  border-left: 1px solid #eee;
-  padding-right: 8px;
-  overflow: auto;
 }

@@ -1,25 +1,31 @@
-<navig currentteam="$ctrl.team"></navig>
+<navig current-team="players.team" menu-opened="menuOpened"></navig>
 
-<div class="container-fluid">
-    <div class="container">
-        <div class="page-header">
-            <h1>Gestion des joueurs<br>
-                <small>{{$ctrl.team.name}}</small>
-            </h1>
-        </div>
-        <p>
-            <button ng-click="$state.go('/teams')" type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#playerCreate-Pop">
-                <i class="fa fa-plus"></i> Ajouter un joueur
-            </button>
-            <player-create></player-create>
-        </p>
-        <div ng-repeat="player in $ctrl.team.Players">
-            <player-row player="player">
-                <button ng-click="" type="button" class="btn btn-default btn-xs" aria-label="Left Align" data-toggle="modal" data-target="#{{player._id}}-Pop">
-                    <i class="fa fa-pencil" aria-hidden="true"></i>
-                </button>
-            </player-row>
-            <player-update player="player"></player-update>
-        </div>
-    </div>
+<div flex layout="column">
+    <md-toolbar layout="row" class="md-toolbar-tools">
+        <md-button ng-click="menuOpened = !menuOpened" class="md-icon-button"><i class="fa fa-2x fa-bars"
+                                                                                 aria-hidden="true"></i>
+        </md-button>
+        <h1>Gestion des joueurs - {{players.team.name}}</h1>
+        <span flex></span>
+        <md-button ng-click="players.showDialog($event, 'playerCreate')">
+            <i class="fa fa-plus"></i>
+            Ajouter un joueur
+        </md-button>
+        <player-create></player-create>
+    </md-toolbar>
+
+    <md-content flex layout="column" layout-padding md-scroll-y>
+        <md-list>
+            <md-list-item ng-repeat="player in players.team.Players">
+                <div flex class="md-list-item-text">
+                    <player-row player="player"></player-row>
+                </div>
+                <md-button class="md-secondary" ng-click="players.showDialog($event, player._id)">
+                    <i class="fa fa-2x fa-pencil"></i>
+                </md-button>
+                <md-divider ng-if="!$last"></md-divider>
+                <player-update player="player"></player-update>
+            </md-list-item>
+        </md-list>
+    </md-content>
 </div>

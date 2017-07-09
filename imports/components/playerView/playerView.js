@@ -7,8 +7,12 @@ import {name as PlayerStatChart} from "../playerStatChart/playerStatChart";
 import template from "./playerView.html";
 
 class PlayerViewCtrl {
-    constructor($scope) {
+    constructor($scope, $mdDialog) {
+        $scope.viewModel(this);
 
+        this.closeDialog = function() {
+            $mdDialog.hide();
+        };
     }
 }
 
@@ -20,7 +24,7 @@ export default angular.module(name, [
 ])
     .component(name, {
         templateUrl: template,
-        controller: ['$scope', PlayerViewCtrl],
+        controller: ['$scope', '$mdDialog', PlayerViewCtrl],
         controllerAs : name,
         bindings: {
             player: "="
