@@ -22,5 +22,23 @@ Meteor.methods({
                 $set: upd
             }
         );
+    },
+    'teams.updatePlayer'(teamId, player) {
+        Teams.update({"_id" : teamId, "Players._id" : player._id}, {
+                $set: {"Players.$" : player}
+            }
+        );
+    },
+    'teams.createPlayer'(teamId, player) {
+        Teams.update(teamId, {
+                $push: {"Players" : player}
+            }
+        );
+    },
+    'teams.deletePlayer'(teamId, playerId) {
+        Teams.update(teamId, {
+            $pull: {"Players" : {"_id" : playerId}}
+            }
+        );
     }
 });

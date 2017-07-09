@@ -1,13 +1,16 @@
 <md-sidenav md-is-open="navig.menuOpened" class="md-whiteframe-4dp">
     <md-list>
-        <md-input-container>
-            <label>Choix d'une équipe</label>
-            <md-select ng-model="navig.currentTeam">
-                <md-option ng-repeat="team in navig.teams" ng-value="team" ng-disabled="team._id === navig.currentTeam._id">
-                    {{team.name}}
-                </md-option>
-            </md-select>
-        </md-input-container>
+        <md-list-item>
+            <md-input-container>
+                <label>Choix d'une équipe</label>
+                <md-select ng-model="navig.currentTeam" ng-model-options="{trackBy: '$value._id'}" ng-change="navig.menuOpened = false">
+                    <md-option ng-repeat="team in navig.teams" ng-value="team"
+                               ng-disabled="team._id === navig.currentTeam._id">
+                        {{team.name}}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+        </md-list-item>
         <any ng-if="navig.currentTeam">
             <md-list-item>
                 <md-button href="/{{navig.currentTeam._id}}/dashboard">

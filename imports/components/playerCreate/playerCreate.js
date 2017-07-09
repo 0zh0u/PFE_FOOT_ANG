@@ -31,6 +31,10 @@ class PlayerCreateCtrl {
         };
     }
 
+    createPlayer() {
+        Meteor.call('teams.createPlayer', this.teamId, angular.copy(this.player));
+    }
+
     addStat() {
         for(var i = 0; i < this.player.Stats.length; ++i)
             if(this.player.Stats[i].name === this.statToAdd)
@@ -49,11 +53,13 @@ class PlayerCreateCtrl {
 const name = 'playerCreate'
 
 export default angular.module(name, [
-    angularMeteor,
-    // hammer
+    angularMeteor
 ])
     .component(name, {
         templateUrl: template,
         controllerAs: name,
-        controller: ['$scope','$mdDialog', PlayerCreateCtrl]
+        controller: ['$scope','$mdDialog', PlayerCreateCtrl],
+        bindings: {
+            teamId: "<"
+        }
     });

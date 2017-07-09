@@ -11,7 +11,7 @@
             <i class="fa fa-plus"></i>
             Ajouter un joueur
         </md-button>
-        <player-create></player-create>
+        <player-create team-id="players.team._id"></player-create>
     </md-toolbar>
 
     <md-content flex layout="column" layout-padding md-scroll-y>
@@ -24,7 +24,7 @@
                     <i class="fa fa-2x fa-pencil"></i>
                 </md-button>
                 <md-divider ng-if="!$last"></md-divider>
-                <player-update player="player"></player-update>
+                <player-update team-id="players.team._id" player="player"></player-update>
             </md-list-item>
         </md-list>
     </md-content>
