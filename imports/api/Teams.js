@@ -13,3 +13,14 @@ if (Meteor.isServer) {
         }
     });
 }
+
+Meteor.methods({
+    'teams.updatePlayerParticipation'(teamId, eventIndex, playerIndex, participation) {
+        var upd = {};
+        upd['Events.'+ eventIndex +'.Players.'+ playerIndex +'.confirmed'] = participation;
+        Teams.update(teamId, {
+                $set: upd
+            }
+        );
+    }
+});

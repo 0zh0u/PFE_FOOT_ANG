@@ -8,7 +8,7 @@ import {Teams} from "../../api/Teams";
 import template from "./dashboard.html";
 
 class DashboardCtrl {
-    constructor($scope,$stateParams, $mdDialog) {
+    constructor($scope, $stateParams, $mdDialog) {
         'ngInject';
 
         $scope.viewModel(this);
@@ -20,7 +20,7 @@ class DashboardCtrl {
         this.team = {};
 
         this.helpers({
-            teams : function(){
+            teams: function () {
                 return Teams.find();
             },
             team() {
@@ -28,15 +28,19 @@ class DashboardCtrl {
             }
         });
 
-        this.showDialog = function(ev, id) {
+        this.showDialog = function (ev, id) {
             $mdDialog.show({
-                contentElement: '#'+ id +'-Pop',
+                contentElement: '#' + id + '-Pop',
                 parent: angular.element(document.body),
                 clickOutsideToClose: true
             });
         };
 
         this.findPlayer = player => this.team.Players.filter(e => e._id == player)[0];
+
+        this.updateParticipation = (eventIndex, playerIndex, participation) => {
+            Meteor.call('teams.updatePlayerParticipation', this.team._id, eventIndex, playerIndex, participation);
+        }
     }
 }
 
@@ -51,10 +55,10 @@ export default angular.module(name, [
     .component(name, {
         templateUrl: template,
         controllerAs: name,
-        controller: ['$scope',"$stateParams", '$mdDialog', DashboardCtrl]
+        controller: ['$scope', "$stateParams", '$mdDialog', DashboardCtrl]
     })
     .config(function ($stateProvider) {
-        'ngInject';
+            'ngInject';
             $stateProvider.state('dashboard', {
                 url: '/:teamId/dashboard',
                 template: '<dashboard></dashboard>'

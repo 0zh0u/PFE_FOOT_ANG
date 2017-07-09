@@ -32,7 +32,7 @@
                                     </md-button>
                                     <md-input-container>
                                         <label>Participe ?</label>
-                                        <md-select ng-model="eventPlayer.confirmed" style="min-width: 150px;">
+                                        <md-select ng-model="eventPlayer.confirmed" ng-change="dashboard.updateParticipation($parent.$index, $index, eventPlayer.confirmed)" style="min-width: 150px;">
                                             <md-option ng-value="'wait'">En attente</md-option>
                                             <md-option ng-value="'wont'">Pas disponible</md-option>
                                             <md-option ng-value="'will'">Participera</md-option>
