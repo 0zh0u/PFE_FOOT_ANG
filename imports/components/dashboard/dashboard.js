@@ -17,12 +17,14 @@ class DashboardCtrl {
 
         this.subscribe('teams');
 
+        this.team = {};
+
         this.helpers({
             teams : function(){
                 return Teams.find();
             },
             team() {
-                return Teams.findOne({_id: $stateParams.teamId});
+                return team = Teams.findOne({_id: $stateParams.teamId});
             }
         });
 
@@ -33,6 +35,8 @@ class DashboardCtrl {
                 clickOutsideToClose: true
             });
         };
+
+        this.findPlayer = player => this.team.Players.filter(e => e._id == player)[0];
     }
 }
 

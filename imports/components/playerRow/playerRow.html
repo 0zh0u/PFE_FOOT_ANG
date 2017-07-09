@@ -1,4 +1,4 @@
-<md-content class="player player-{{playerRow.player.condition_type}}" layout-padding>
+<div layout="row" class="player player-{{playerRow.player.condition_type}}" layout-padding>
 
     <ng-transclude></ng-transclude>
     <i ng-if="playerRow.player.condition_type == 'good'" class="fa fa-thumbs-up condition" aria-hidden="true"></i>
@@ -15,4 +15,4 @@
         {{playerRow.player.post | formatPostShort }}
         </span>
     </span>
-</md-content>
+</div>

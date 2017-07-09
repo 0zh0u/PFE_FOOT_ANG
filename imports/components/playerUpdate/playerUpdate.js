@@ -24,6 +24,6 @@ export default angular.module(name, [
         controller: ['$scope', '$mdDialog', PlayerUpdateCtrl],
         controllerAs: name,
         bindings: {
-            player: "="
+            player: "<"
         }
     });

@@ -72,7 +72,7 @@ body trem .fa-medkit {
   font-size: 1.5em;
 }
 body trem .fa-power-off {
-  color: #dc8700;
+  color: #ffc107;
   font-size: 1.5em;
 }
 body trem .fa-search-plus {
@@ -188,18 +188,14 @@ body trem team-view player-post player-row #text {
 body trem team-creat player-post .icon {
   font-size: 3em;
 }
-body trem dashboard .loc.open {
-  margin-bottom: 1em;
+body trem dashboard .row-wait md-select {
+  color: lightsalmon !important;
 }
-body trem dashboard .match {
-  margin-bottom: 1em;
+body trem dashboard .row-wont md-select {
+  color: lightcoral !important;
 }
-body trem dashboard .playersTable {
-  float: left;
-  width: 50%;
-  display: table;
-  padding: 1em;
-  border-top: 1px solid #ccc;
+body trem dashboard .row-will md-select {
+  color: #09ab09 !important;
 }
 body trem .player-view-header-text {
   color: black;

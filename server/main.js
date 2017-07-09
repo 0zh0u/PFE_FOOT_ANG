@@ -20,67 +20,17 @@ Meteor.startup(() => {
                 "Players": [
                     {
                         "player": "psgJ1",
-                        "confirmed": false
+                        "confirmed": 'wait'
                     },
                     {
                         "player": "psgJ2",
-                        "confirmed": true
+                        "confirmed": 'will'
                     },
                     {
-                        "player": "psgJ2",
-                        "confirmed": true
+                        "player": "psgJ3",
+                        "confirmed": 'wont'
                     }
                 ],
-                "PlayersTeamB": [
-                    {
-                        "_id": "omJ1",
-                        "firstname": "Toto",
-                        "lastname": "Titi",
-                        "condition": "OK",
-                        "condition_type": "good",
-                        "post" : "C_F",
-                        "Stats": [
-                            {name: "speed", value: 30},
-                            {name: "control", value: 40},
-                            {name: "teamwork", value: 50},
-                            {name: "attack", value: 60},
-                            {name: "defense", value: 70}
-                        ],
-                        "isDisabled": false
-                    },
-                    {
-                        "_id": "omJ2",
-                        "firstname": "Tata",
-                        "lastname": "Tutu",
-                        "condition": "Fracture à la jambe",
-                        "condition_type": "hurt",
-                        "post" : "LC_B",
-                        "Stats": [
-                            {name: "speed", value: 30},
-                            {name: "control", value: 40},
-                            {name: "teamwork", value: 50},
-                            {name: "attack", value: 60},
-                            {name: "defense", value: 70}
-                        ],
-                        "isDisabled": false
-                    },
-                    {
-                        "_id": "omJ3",
-                        "firstname": "Lolo",
-                        "lastname": "Lili",
-                        "condition": "Une semaine de repos",
-                        "condition_type": "tired",
-                        "post" : "R_AM",
-                        "Stats": [
-                            {name: "speed", value: 30},
-                            {name: "control", value: 40},
-                            {name: "teamwork", value: 50},
-                            {name: "attack", value: 60},
-                            {name: "defense", value: 70}
-                        ],
-                        "isDisabled": false
-                    }
-                ]
             },
             {
                 "type": "training",
@@ -185,20 +135,6 @@ Meteor.startup(() => {
                 "date": 1499367600,
                 "location": "Paris",
                 "duration": 7200,
-                "Players": [
-                    {
-                        "player": "psgJ1",
-                        "confirmed": false
-                    },
-                    {
-                        "player": "psgJ2",
-                        "confirmed": true
-                    },
-                    {
-                        "player": "psgJ2",
-                        "confirmed": true
-                    }
-                ]
             }
         ],
         "Players": [

@@ -25,12 +25,19 @@
                             <div class="match">{{dashboard.team._id}} / {{event.team_b}} - {{event.duration | date :
                                 "hh:mm"}}
                             </div>
-                            <p>{{dashboard.team._id}}</p>
                             <md-list>
-                                <md-list-item ng-repeat="player in dashboard.team.Players">
+                                <md-list-item ng-class="'row-' + eventPlayer.confirmed" ng-repeat="eventPlayer in event.Players" ng-init="player=dashboard.findPlayer(eventPlayer.player)">
                                     <md-button ng-click="dashboard.showDialog($event, player._id)">
                                         <i class="fa fa-2x fa-search-plus"></i>
                                     </md-button>
+                                    <md-input-container>
+                                        <label>Participe ?</label>
+                                        <md-select ng-model="eventPlayer.confirmed" style="min-width: 150px;">
+                                            <md-option ng-value="'wait'">En attente</md-option>
+                                            <md-option ng-value="'wont'">Pas disponible</md-option>
+                                            <md-option ng-value="'will'">Participera</md-option>
+                                        </md-select>
+                                    </md-input-container>
                                     <div flex class="md-list-item-text">
                                         <player-row player="player"></player-row>
                                     </div>
@@ -38,22 +45,6 @@
                                     <md-divider ng-if="!$last"></md-divider>
                                 </md-list-item>
                             </md-list>
-
-                            <div class="table playersTable">
-                                <p>{{event.team_b}}</p>
-                                <p ng-repeat="player in event.PlayersTeamB">
-                                    <player-row player="player">
-                                        <button ng-click="" type="button" class="btn btn-default btn-xs"
-                                                aria-label="Left Align" data-toggle="modal"
-                                                data-target="#{{player._id}}-Pop">
-                                            <span class="fa fa-search-plus" aria-hidden="true"></span>
-                                        </button>
-                                    </player-row>
-                                    <player-view player="player"></player-view>
-                                </p>
-
-                            </div>
-
                         </div>
                         <div ng-switch-when="training">
 
