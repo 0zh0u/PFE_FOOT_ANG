@@ -110,7 +110,6 @@ class TeamViewCtrl {
                     }
                 }
             };
-            $("#soccerfield").soccerfield($scope.data, options);
             /// SOCCERFIELD
         })
     }
