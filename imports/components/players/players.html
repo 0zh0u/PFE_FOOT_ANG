@@ -15,17 +15,50 @@
     <navig current-team="players.team" menu-opened="menuOpened"></navig>
 
     <md-content flex layout="column" layout-padding md-scroll-y>
-        <md-list>
-            <md-list-item ng-repeat="player in players.team.Players">
-                <div flex class="md-list-item-text">
-                    <player-row player="player"></player-row>
-                </div>
-                <md-button class="md-secondary" ng-click="players.showDialog($event, player._id)">
-                    <i class="fa fa-2x fa-pencil"></i>
-                </md-button>
-                <md-divider ng-if="!$last"></md-divider>
-                <player-update team-id="players.team._id" player="player"></player-update>
-            </md-list-item>
-        </md-list>
+        <md-toolbar class="md-table-toolbar md-default">
+            <div class="md-toolbar-tools">
+                <span>Liste des joueurs</span>
+            </div>
+        </md-toolbar>
+
+        <md-table-container>
+            <table md-table md-row-select multiple="true" ng-model="players.selected" md-progress="players.promise">
+                <thead md-head md-order="players.query.order" md-on-reorder="players.getPlayers">
+                <tr md-row>
+                    <th md-column>Action</th>
+                    <th md-column md-order-by="condition"><span>Condition</span></th>
+                    <th md-column md-order-by="name"><span>Nom</span></th>
+                    <th md-column md-order-by="post"><span>Position</span></th>
+                </tr>
+                </thead>
+                <tbody md-body>
+                <tr md-row md-select="player" md-select-id="_id" md-auto-select
+                    ng-repeat="player in players.team.Players">
+                    <td md-cell>
+                        <md-button class="md-icon-button" ng-click="players.showDialog($event, player._id)">
+                            <i class="fa fa-pencil"></i>
+                        </md-button>
+                        <player-update team-id="players.team._id" player="player"></player-update>
+                    </td>
+                    <td md-cell>
+                        <i ng-if="player.condition_type == 'good'" class="fa fa-thumbs-up condition" aria-hidden="true"></i>
+                        <i ng-if="player.condition_type == 'hurt'" class="fa fa-medkit condition" aria-hidden="true"></i>
+                        <i ng-if="player.condition_type == 'tired'" class="fa fa-power-off condition" aria-hidden="true"></i>
+                    </td>
+                    <td md-cell>{{player.firstname}} {{player.lastname}}</td>
+                    <td md-cell ng-if="options === undefined || options.post == true">
+                        {{player.post | formatPost }}
+                    </td>
+                    <td md-cell ng-if="options.post == false">
+                        {{player.post | formatPostShort }}
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </md-table-container>
+
+        <md-table-pagination md-limit="players.query.limit" md-limit-options="[5, 10, 15]" md-page="players.query.page"
+                             md-total="-1" md-on-paginate="getPlayers"
+                             md-page-select></md-table-pagination>
     </md-content>
 </div>

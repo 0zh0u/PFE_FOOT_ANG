@@ -9,7 +9,7 @@ import {name as Navig} from "../navig/navig";
 import template from "./players.html";
 
 class PlayersCtrl {
-    constructor($scope,$stateParams,$mdDialog) {
+    constructor($scope,$stateParams,$mdDialog, $timeout) {
 
         $scope.viewModel(this);
 
@@ -21,6 +21,23 @@ class PlayersCtrl {
             }
         });
 
+        this.teamId = $stateParams.teamId;
+
+        this.selected = [];
+
+        this.query = {
+            order: 'firstName',
+            limit: 2,
+            page: 1
+        };
+
+        this.promise = $timeout(function () {
+            // loading
+        }, 2000);
+
+        this.formattedSort = {};
+        this.formattedSort["Players."+ this.query.order] = 1;
+
         this.showDialog = function(ev, id) {
             $mdDialog.show({
                 contentElement: '#'+ id +'-Pop',
@@ -28,6 +45,19 @@ class PlayersCtrl {
                 clickOutsideToClose: true
             });
         };
+    }
+
+    getPlayers() {
+console.log("test players : " + JSON.stringify(this.query));
+        this.players = Teams.aggregate([
+            {$match: {"_id" : this.teamId}},
+            {$unwind: "$Players"},
+            {$sort: this.formattedSort},
+            {$skip: this.query.page},
+            {$limit: this.query.limit}
+        ]);
+
+        console.log(players.pretty());
     }
 }
 
@@ -42,7 +72,7 @@ export default angular.module(name, [
 ])
     .component(name, {
         templateUrl: template,
-        controller : ["$scope","$stateParams",'$mdDialog',PlayersCtrl],
+        controller : ["$scope","$stateParams",'$mdDialog', '$timeout',PlayersCtrl],
         controllerAs: name,
         bindings: {
             player: "="

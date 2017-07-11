@@ -3,6 +3,8 @@ import angularMeteor from "angular-meteor";
 import uiRouter from "angular-ui-router";
 import ngMessages from 'angular-messages';
 import ngMaterial from 'angular-material';
+import ngDatatable from 'angular-material-data-table';
+import 'angular-material-data-table/dist/md-data-table.min.css';
 import 'angular-material/angular-material.css';
 import {name as SelectTeam} from "../selectTeam/selectTeam";
 import {name as DashboardCtrl} from "../dashboard/dashboard";
@@ -25,6 +27,7 @@ export default angular.module(name, [
     uiRouter,
     ngMessages,
     ngMaterial,
+    ngDatatable,
     SelectTeam,
     DashboardCtrl,
     PlayersCtrl,
