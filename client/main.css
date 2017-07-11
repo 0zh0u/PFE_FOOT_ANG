@@ -13,6 +13,9 @@ ul {
 .playerChart {
   width: 250px;
 }
+.playerChart canvas {
+  position: fixed;
+}
 .flex {
   flex: 1;
 }
