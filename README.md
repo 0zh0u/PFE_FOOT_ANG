@@ -1,11 +1,5 @@
-# Simple Todo List
+# PFE Trem
 
-The Meteor Tutorial app.
+Projet d'école d'ingénieur (ECE) de l'équipe Trem.
 
-Use it to share a single todo list with your friends. The list updates on everyone's screen in real time, and you can make tasks private if you don't want others to see them.
-
-Learn how to build this app by following the [Meteor Tutorial](http://www.meteor.com/install).
-
-Read more about building apps with Meteor in the [Meteor Guide](http://guide.meteor.com).
-
-![screenshot](screenshot.png)
+Application web & mobile pour un coach d'une équipe de foot : gestion de ses équipes et de ses joueurs, organisation d'événements (match / entrainements ...) et consultation de statistiques.
