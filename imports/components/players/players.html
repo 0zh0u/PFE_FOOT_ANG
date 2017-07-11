@@ -1,5 +1,3 @@
-<navig current-team="players.team" menu-opened="menuOpened"></navig>
-
 <div flex layout="column">
     <md-toolbar layout="row" class="md-toolbar-tools">
         <md-button ng-click="menuOpened = !menuOpened" class="md-icon-button"><i class="fa fa-2x fa-bars"
@@ -13,6 +11,8 @@
         </md-button>
         <player-create team-id="players.team._id"></player-create>
     </md-toolbar>
+
+    <navig current-team="players.team" menu-opened="menuOpened"></navig>
 
     <md-content flex layout="column" layout-padding md-scroll-y>
         <md-list>

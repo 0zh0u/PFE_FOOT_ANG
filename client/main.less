@@ -13,9 +13,13 @@ ul {
 
 .playerChart {
   width: 250px;
+  height: 240px;
 
   canvas {
     position: fixed;
+
+    border-left: 1px solid #ddd;
+    padding-left: 8px;
   }
 }
 
@@ -55,11 +59,7 @@ ul {
 
 body {
 
-  overflow-y: scroll;
-
   trem {
-    height: 100%;
-
     //md-toolbar {
     //  button {
     //    min-width: 30px !important;
@@ -275,18 +275,6 @@ body {
       background-color: #eee;
     }
 
-    .container {
-      height: 100%;
-      width: 80%;
-      margin: auto;
-
-      padding-bottom: 15px;
-
-      background-color: ghostwhite;
-      box-shadow: 0px 0px 8px black;
-
-    }
-
     select-team {
       md-grid-tile {
         background-color: #b9f6ca;
@@ -337,61 +325,6 @@ body {
           }
         }
       }
-    }
-  }
-}
-
-.navbar {
-  li i {
-    margin-right: 4px;
-  }
-
-  @media (max-width: 868px) {
-    .container {
-      width:100%;
-    }
-
-    .navbar-header {
-      float: none;
-    }
-
-    .navbar-left, .navbar-right {
-      float: none !important;
-    }
-
-    .navbar-toggle {
-      display: block;
-    }
-
-    .navbar-collapse {
-      border-top: 1px solid transparent;
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    }
-
-    .navbar-fixed-top {
-      top: 0;
-      border-width: 0 0 1px;
-    }
-
-    .navbar-collapse.collapse {
-      display: none !important;
-    }
-
-    .navbar-nav {
-      margin-top: 7.5px;
-    }
-
-    .navbar-nav > li {
-      float: none;
-    }
-
-    .navbar-nav > li > a {
-      padding-top: 10px;
-      padding-bottom: 10px;
-    }
-
-    .collapse.in {
-      display: block !important;
     }
   }
 }

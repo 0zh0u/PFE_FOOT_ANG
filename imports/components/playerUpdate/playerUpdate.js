@@ -4,12 +4,16 @@ import angularMeteor from "angular-meteor";
 import template from "./playerUpdate.html";
 
 class PlayerUpdateCtrl {
-    constructor($scope, $mdDialog) {
+    constructor($scope, $mdDialog, $timeout) {
         $scope.viewModel(this);
 
         this.closeDialog = function() {
             $mdDialog.hide();
         };
+
+        $timeout(() => {
+            this.playerUpd = angular.copy(this.player);
+        });
 
         this.deletePlayer = () => {
             var confirm = $mdDialog.confirm()
@@ -22,7 +26,7 @@ class PlayerUpdateCtrl {
             $mdDialog.show(confirm).then(() => Meteor.call('teams.deletePlayer', this.teamId, this.player._id));
         };
 
-        this.updatePlayer = () => Meteor.call('teams.updatePlayer', this.teamId, angular.copy(this.player));
+        this.updatePlayer = () => Meteor.call('teams.updatePlayer', this.teamId, angular.copy(this.playerUpd));
     }
 }
 
@@ -34,7 +38,7 @@ export default angular.module(name, [
 ])
     .component(name, {
         templateUrl: template,
-        controller: ['$scope', '$mdDialog', PlayerUpdateCtrl],
+        controller: ['$scope', '$mdDialog', '$timeout', PlayerUpdateCtrl],
         controllerAs: name,
         bindings: {
             teamId: "<",

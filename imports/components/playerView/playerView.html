@@ -13,18 +13,20 @@
                 </div>
             </md-toolbar>
 
-            <md-dialog-content layout-padding>
-                <ul>
-                    <li>Nom : {{playerView.player.lastname}}</li>
-                    <li>Prenom : {{playerView.player.firstname}}</li>
-                    <li class="player-{{playerView.player.condition_type}}">Condition :
-                        {{playerView.player.condition_type}}
-                    </li>
+            <md-dialog-content>
+                <md-content layout="row" layout-padding>
+                    <ul>
+                        <li>Nom : {{playerView.player.lastname}}</li>
+                        <li>Prenom : {{playerView.player.firstname}}</li>
+                        <li class="player-{{playerView.player.condition_type}}">Condition :
+                            {{playerView.player.condition_type}}
+                        </li>
 
-                    <li>Actif : {{!playerView.player.condition_type}}</li>
-                    <li>Test : {{playerView.player._id}}</li>
-                </ul>
-                <player-stat-chart player="playerView.player"></player-stat-chart>
+                        <li>Actif : {{!playerView.player.condition_type}}</li>
+                        <li>Test : {{playerView.player._id}}</li>
+                    </ul>
+                    <player-stat-chart player="playerView.player"></player-stat-chart>
+                </md-content>
             </md-dialog-content>
             <md-dialog-actions layout="row">
                 <span flex></span>

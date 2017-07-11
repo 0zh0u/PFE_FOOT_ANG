@@ -7,22 +7,25 @@ import template from "./playerCreate.html";
 
 const STAT_DEFAULT_VALUE = 50;
 
+const INITIAL_PLAYER = {
+    _id: 'tocreate',
+    firstName: '',
+    lastName: '',
+    condition_type: 'good',
+    Stats: [
+        {name: 'Attaque', value: STAT_DEFAULT_VALUE},
+        {name: 'Défense', value: STAT_DEFAULT_VALUE},
+        {name: "Jeu d'équipe", value: STAT_DEFAULT_VALUE},
+        {name: 'Vitesse', value: STAT_DEFAULT_VALUE}
+    ]
+};
+
 class PlayerCreateCtrl {
     constructor($scope,$mdDialog) {
 
         $scope.viewModel(this);
 
-        this.player = {
-            _id: 'tocreate',
-            firstName: '',
-            lastName: '',
-            Stats: [
-                {name: 'Attaque', value: STAT_DEFAULT_VALUE},
-                {name: 'Défense', value: STAT_DEFAULT_VALUE},
-                {name: "Jeu d'équipe", value: STAT_DEFAULT_VALUE},
-                {name: 'Vitesse', value: STAT_DEFAULT_VALUE}
-            ]
-        };
+        this.player = INITIAL_PLAYER;
 
         this.statToAdd = "";
 
@@ -33,6 +36,9 @@ class PlayerCreateCtrl {
 
     createPlayer() {
         Meteor.call('teams.createPlayer', this.teamId, angular.copy(this.player));
+
+        this.player = INITIAL_PLAYER;
+        this.closeDialog();
     }
 
     addStat() {
