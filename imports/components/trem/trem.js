@@ -12,6 +12,7 @@ import {name as PlayersCtrl} from "../players/players";
 import {name as playerView} from "../playerView/playerView";
 import {name as teamCreate} from "../teamCreate/teamCreate";
 import {name as teamView} from "../teamView/teamView";
+import {name as trainings} from "../trainings/trainings";
 import {Teams} from "../../api/Teams";
 
 import template from "./trem.html";
@@ -33,7 +34,8 @@ export default angular.module(name, [
     PlayersCtrl,
     playerView,
     teamCreate,
-    teamView
+    teamView,
+    trainings
 ])
     .component(name, {
         templateUrl: template,
