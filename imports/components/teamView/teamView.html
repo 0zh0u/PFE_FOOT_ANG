@@ -11,37 +11,40 @@
         </md-button>
     </md-toolbar>
 
+    <div flex layout="row">
+        <navig layout="column" current-team="teamView.team" menu-opened="menuOpened"></navig>
 
-    <navig current-team="teamView.team" menu-opened="menuOpened"></navig>
-    <md-dialog aria-label="List dialog">
-        <md-dialog-content>
-            <md-list>
-                <md-list-item ng-repeat="player in teamView.team.Players">
-                    <p>Number {{player}}</p>
-                </md-list-item>
-            </md-list>
-        </md-dialog-content>
-        <md-dialog-actions>
-            <md-button ng-click="closeDialog()" class="md-primary">Close Dialog</md-button>
-        </md-dialog-actions>
-    </md-dialog>
-    <md-content flex layout="column" layout-padding md-scroll-y>
+        <md-dialog aria-label="List dialog">
+            <md-dialog-content>
+                <md-list>
+                    <md-list-item ng-repeat="player in teamView.team.Players">
+                        <p>Number {{player}}</p>
+                    </md-list-item>
+                </md-list>
+            </md-dialog-content>
+            <md-dialog-actions>
+                <md-button ng-click="closeDialog()" class="md-primary">Close Dialog</md-button>
+            </md-dialog-actions>
+        </md-dialog>
+        <md-content flex layout="column" layout-padding md-scroll-y>
 
-        <div class="container-fluid">
-            <div class="container flex-container flex-container-center ">
-                <div class="teamView flex-1">
-                    <div class="soccerfield-field-field-img" >
-                        <div class="flex-container flex-container-center">
-                            <div class="flex-container-col" ng-repeat="line in teamView.Formation">
-                                <div class="post" ng-class="{ 'disabled' : post.disabled}"  ng-repeat="post in line.rows">
-                                    <player-post post="post" team="teamView.team"></player-post>
+            <div class="container-fluid">
+                <div class="container flex-container flex-container-center ">
+                    <div class="teamView flex-1">
+                        <div class="soccerfield-field-field-img">
+                            <div class="flex-container flex-container-center">
+                                <div class="flex-container-col" ng-repeat="line in teamView.Formation">
+                                    <div class="post" ng-class="{ 'disabled' : post.disabled}"
+                                         ng-repeat="post in line.rows">
+                                        <player-post post="post" team="teamView.team"></player-post>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-    </md-content>
+        </md-content>
+    </div>
 </div>

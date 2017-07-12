@@ -64,7 +64,7 @@ export default angular.module(name, [
             'ngInject';
             $stateProvider.state('dashboard', {
                 url: '/:teamId/dashboard',
-                template: '<dashboard></dashboard>'
+                template: '<dashboard flex layout="column"></dashboard>'
             });
         }
     );

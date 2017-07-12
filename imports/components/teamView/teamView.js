@@ -131,6 +131,6 @@ export default angular.module(name, [
             'ngInject';
             $stateProvider.state('teamView', {
                 url: '/:teamId/team',
-                template: '<team-view></team-view>'
+                template: '<team-view flex layout="column"></team-view>'
             });
         });

@@ -1,0 +1,31 @@
+<div flex layout="column">
+    <md-toolbar layout="row" class="md-toolbar-tools">
+        <md-button ng-click="menuOpened = !menuOpened" class="md-icon-button"><i class="fa fa-2x fa-bars"
+                                                                                 aria-hidden="true"></i>
+        </md-button>
+        <h1>Entraînements - {{trainings.team.name}}</h1>
+        <span flex></span>
+        <md-button>
+            <i class="fa fa-plus"></i>
+            Créer un entraînement
+        </md-button>
+    </md-toolbar>
+
+    <div flex layout="row">
+        <navig layout="column" current-team="trainings.team" menu-opened="menuOpened"></navig>
+
+        <md-content flex layout="column" layout-padding md-scroll-y>
+            <md-list flex>
+                <div ng-repeat="event in trainings.team.Events">
+                    <md-list-item class="md-2-line" ng-if="event.type=='training'" ng-click="null">
+                        <div flex class="md-list-item-text">
+                            <h3>{{event.date | date }} - {{event.type}}</h3>
+                            <h4>{{event.location}}</h4>
+                        </div>
+                        <md-divider ng-if="!$last"></md-divider>
+                    </md-list-item>
+                </div>
+            </md-list>
+        </md-content>
+    </div>
+</div>

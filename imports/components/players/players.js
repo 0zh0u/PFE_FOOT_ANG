@@ -95,6 +95,6 @@ export default angular.module(name, [
         $stateProvider
             .state('players', {
                 url: '/:teamId/players',
-                template: '<players></players>'
+                template: '<players flex layout="column"></players>'
             });
     });
