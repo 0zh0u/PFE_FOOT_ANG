@@ -8,7 +8,7 @@ import {Teams} from "../../api/Teams";
 import template from "./dashboard.html";
 
 class DashboardCtrl {
-    constructor($scope, $stateParams, $mdDialog) {
+    constructor($scope, $stateParams, $mdMedia, $mdDialog) {
         'ngInject';
 
         $scope.viewModel(this);
@@ -20,6 +20,9 @@ class DashboardCtrl {
         this.team = {};
 
         this.helpers({
+            $mdMedia() {
+              return $mdMedia;
+            },
             teams: function () {
                 return Teams.find();
             },
@@ -55,7 +58,7 @@ export default angular.module(name, [
     .component(name, {
         templateUrl: template,
         controllerAs: name,
-        controller: ['$scope', "$stateParams", '$mdDialog', DashboardCtrl]
+        controller: ['$scope', "$stateParams", '$mdMedia', '$mdDialog', DashboardCtrl]
     })
     .config(function ($stateProvider) {
             'ngInject';

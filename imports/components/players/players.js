@@ -11,53 +11,65 @@ import template from "./players.html";
 class PlayersCtrl {
     constructor($scope,$stateParams,$mdDialog, $timeout) {
 
-        $scope.viewModel(this);
+        //$reactive($scope).attach($scope);
 
-        //$reactive(this).attach($scope);
-
-        this.helpers({
+        $scope.helpers({
             team() {
                 return Teams.findOne({_id: $stateParams.teamId});
             }
         });
 
-        this.teamId = $stateParams.teamId;
+        $scope.teamId = $stateParams.teamId;
 
-        this.selected = [];
+        $scope.selected = [];
 
-        this.query = {
+        $scope.queryParams = {
             order: 'firstName',
-            limit: 2,
+            limit: 20,
             page: 1
         };
 
-        this.promise = $timeout(function () {
+        $scope.promise = $timeout(function () {
             // loading
         }, 2000);
 
-        this.formattedSort = {};
-        this.formattedSort["Players."+ this.query.order] = 1;
-
-        this.showDialog = function(ev, id) {
+        $scope.showDialog = function(ev, id) {
             $mdDialog.show({
                 contentElement: '#'+ id +'-Pop',
                 parent: angular.element(document.body),
                 clickOutsideToClose: true
             });
         };
-    }
 
-    getPlayers() {
-console.log("test players : " + JSON.stringify(this.query));
-        this.players = Teams.aggregate([
-            {$match: {"_id" : this.teamId}},
-            {$unwind: "$Players"},
-            {$sort: this.formattedSort},
-            {$skip: this.query.page},
-            {$limit: this.query.limit}
-        ]);
+        $scope.bulkDeletePlayers = function() {
+            var content = "Ces joueur seront supprimés de l'équipe : ";
+            var players = "";
+            for(var i = 0; i < $scope.selected.length; ++i)
+                players += ", " + $scope.selected[i].firstname +" "+ $scope.selected[i].lastname;
 
-        console.log(players.pretty());
+            var confirm = $mdDialog.confirm()
+                .title('Êtes-vous sûr de vouloir supprimer ces joueurs ?')
+                .textContent(content + players.substring(2))
+                .ariaLabel('Confirmer la suppression')
+                .ok('Je suis sûr, supprimer ces joueurs')
+                .cancel('Annuler');
+
+            var playersId = [];
+
+            $scope.selected.map(e => playersId.push(e._id));
+
+            $mdDialog.show(confirm).then(() => {
+                Meteor.call('teams.deletePlayers', $scope.teamId, playersId);
+                $scope.selected = [];
+            });
+        };
+
+        // $scope.getPlayers = function() {
+        //     $scope.players = Meteor.call('teams.players.aggregate', $scope.teamId, $scope.queryParams);
+        // };
+
+
+        // $scope.getPlayers();
     }
 }
 

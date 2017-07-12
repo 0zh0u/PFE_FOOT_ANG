@@ -45,4 +45,12 @@ export default angular.module(name, [
         $locationProvider.html5Mode(true);
 
         $urlRouterProvider.otherwise('/teams');
+    }).filter('startFrom', function() {
+        return function(input, start) {
+            if(!input)
+                return;
+
+            start = +start; //parse to int
+            return input.slice(start);
+        }
     });
