@@ -17,7 +17,7 @@
         <md-content flex layout="column" layout-padding md-scroll-y>
             <md-list flex>
                 <div ng-repeat="event in trainings.team.Events">
-                    <md-list-item class="md-2-line" ng-if="event.type=='training'" ng-click="null">
+                    <md-list-item class="md-2-line" ng-if="event.type=='training'" ui-sref="trainingView({ teamId: trainings.team._id, trainingId: event._id})" >
                         <div flex class="md-list-item-text">
                             <h3>{{event.date | date }} - {{event.type}}</h3>
                             <h4>{{event.location}}</h4>
