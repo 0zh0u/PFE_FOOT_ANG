@@ -1,0 +1,51 @@
+<div style="visibility: hidden">
+    <div class="md-dialog-container" id="{{trainingUpdate.trainingUpd._id}}-Pop">
+        <md-dialog>
+            <md-toolbar>
+                <div class="md-toolbar-tools">
+                    <h2>
+                        Modifier un entraînement
+                    </h2>
+                    <span flex></span>
+                    <md-button class="md-icon-button" ng-click="trainingUpdate.closeDialog()">
+                        <i class="fa fa-2x fa-close"></i>
+                    </md-button>
+                </div>
+            </md-toolbar>
+
+            <md-dialog-content>
+                <md-content layout-gt-xs="row" layout="column" layout-padding>
+                    <form name="trainingUpdateForm" flex>
+                        <div layout="column">
+                            <md-input-container flex>
+                                <label>Date</label>
+                                <input name="date" ng-model="trainingUpdate.trainingUpd.date" md-maxlength="30"
+                                       required/>
+                                <div ng-messages="trainingUpdateForm.date.$error" md-auto-hide="false"
+                                     ng-show="trainingUpdateForm.date.$touched">
+                                    <div ng-message="required">Le nom est obligatoire.</div>
+                                    <div ng-message="md-maxlength">Le nom doit faire moins de 30 caractères.</div>
+                                </div>
+                            </md-input-container>
+
+                            <md-input-container flex>
+                                <label>Ville</label>
+                                <input name="city" ng-model="trainingUpdate.trainingUpd.city" md-maxlength="30"
+                                       required/>
+                                <div ng-messages="trainingUpdateForm.city.$error">
+                                    <div ng-message="required">Le prénom est obligatoire.</div>
+                                    <div ng-message="md-maxlength">Le prénom doit faire moins de 30 caractères.</div>
+                                </div>
+                            </md-input-container>
+                        </div>
+                    </form>
+                </md-content>
+            </md-dialog-content>
+            <md-dialog-actions layout="row">
+                <md-button class="md-warn" ng-click="trainingUpdate.deleteTraining()">Supprimer</md-button>
+                <span flex></span>
+                <md-button class="md-primary" ng-click="trainingUpdate.deleteTraining()">Enregistrer</md-button>
+                <md-button ng-click="trainingUpdate.closeDialog()">Fermer</md-button>
+            </md-dialog-actions>
+    </div>
+</div>

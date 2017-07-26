@@ -7,19 +7,60 @@ import {Teams} from "../../api/Teams";
 import template from "./trainings.html";
 
 class TrainingsCtrl {
-    constructor($scope,$stateParams) {
-        $scope.viewModel(this);
+    constructor($scope,$stateParams,$mdDialog, $timeout) {
 
-        this.subscribe('teams');
+        //$reactive($scope).attach($scope);
 
-        this.helpers({
-            teams : function(){
-                return Teams.find();
-            },
+        $scope.helpers({
             team() {
-                return team = Teams.findOne({_id: $stateParams.teamId});
+                return Teams.findOne({_id: $stateParams.teamId});
             }
         });
+
+        $scope.teamId = $stateParams.teamId;
+
+        $scope.selected = [];
+
+        $scope.queryParams = {
+            order: 'date',
+            limit: 5,
+            page: 1
+        };
+
+        $scope.promise = $timeout(function () {
+            // loading
+        }, 2000);
+
+        $scope.showDialog = function(ev, id) {
+            $mdDialog.show({
+                contentElement: '#'+ id +'-Pop',
+                parent: angular.element(document.body),
+                clickOutsideToClose: true
+            });
+        };
+
+        $scope.bulkDeleteTrainings = function() {
+            var content = "Ces entraînements seront supprimés de l'équipe : ";
+            var trainings = "";
+            for(var i = 0; i < $scope.selected.length; ++i)
+                trainings += ", " + $scope.selected[i].date +" "+ $scope.selected[i].city +" " + $scope.selected[i].location;
+
+            var confirm = $mdDialog.confirm()
+                .title('Êtes-vous sûr de vouloir supprimer ces entraînements ?')
+                .textContent(content + trainings.substring(2))
+                .ariaLabel('Confirmer la suppression')
+                .ok('Je suis sûr, supprimer ces entraînements')
+                .cancel('Annuler');
+
+            var trainingsId = [];
+
+            $scope.selected.map(e => trainingsId.push(e._id));
+
+            $mdDialog.show(confirm).then(() => {
+                Meteor.call('teams.deleteTrainings', $scope.teamId, trainingsId);
+                $scope.selected = [];
+            });
+        };
     }
 }
 
@@ -34,7 +75,10 @@ export default angular.module(name, [
     .component(name, {
         templateUrl: template,
         controllerAs : name,
-        controller: ['$scope','$stateParams', TrainingsCtrl]
+        controller : ["$scope","$stateParams",'$mdDialog', '$timeout',TrainingsCtrl],
+        bindings: {
+            training: "="
+        }
     })
     .config(function ($stateProvider) {
             'ngInject';
