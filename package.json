@@ -16,6 +16,7 @@
     "autopublish": "^0.0.8",
     "babel-runtime": "^6.23.0",
     "bcrypt": "^1.0.2",
+    "fullcalendar": "^3.4.0",
     "hammerjs": "^2.0.8",
     "jquery-ui": "^1.12.1",
     "meteor-node-stubs": "~0.2.0",

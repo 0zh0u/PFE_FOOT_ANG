@@ -1,6 +1,9 @@
 import angular from "angular";
 import angularMeteor from "angular-meteor";
 import uiRouter from "angular-ui-router";
+import "fullcalendar";
+import "fullcalendar/dist/fullcalendar.min.css";
+import "fullcalendar/dist/fullcalendar.print.min.css";
 import {name as Navig} from "../navig/navig";
 import {name as PlayerRow} from "../playerRow/playerRow";
 import {Teams} from "../../api/Teams";
@@ -8,7 +11,7 @@ import {Teams} from "../../api/Teams";
 import template from "./dashboard.html";
 
 class DashboardCtrl {
-    constructor($scope, $stateParams, $mdMedia, $mdDialog) {
+    constructor($scope, $timeout, $stateParams, $mdMedia, $mdDialog) {
         'ngInject';
 
         $scope.viewModel(this);
@@ -29,6 +32,28 @@ class DashboardCtrl {
             team() {
                 return team = Teams.findOne({_id: $stateParams.teamId});
             }
+        });
+
+        $timeout(function() {
+            $scope.$watch('dashboard.team', function() {
+                console.log("test watch : ");
+                console.log(JSON.stringify(team));
+
+                if(team)
+                    $("#calendar").fullCalendar({
+                        events( start, end, timezone, callback ) {
+                            console.log("inside test : " + team);
+                                callback( team.Events );
+                        },
+                        eventRender( event, element ) {
+                            console.log("test render :");
+                            console.log(JSON.stringify(event));
+                            element.find( '.fc-content' ).html(
+                                `<span class="fc-title ${ event.type }">${ event.type }</span>`
+                            );
+                        }
+                    });
+            });
         });
 
         this.showDialog = function (ev, id) {
@@ -58,7 +83,7 @@ export default angular.module(name, [
     .component(name, {
         templateUrl: template,
         controllerAs: name,
-        controller: ['$scope', "$stateParams", '$mdMedia', '$mdDialog', DashboardCtrl]
+        controller: ['$scope', "$timeout", "$stateParams", '$mdMedia', '$mdDialog', DashboardCtrl]
     })
     .config(function ($stateProvider) {
             'ngInject';

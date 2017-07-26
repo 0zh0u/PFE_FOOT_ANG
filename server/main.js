@@ -12,7 +12,7 @@ Meteor.startup(() => {
             {
                 "_id":"psgevt1",
                 "type": "match",
-                "date": 1499108400,
+                "date": new Date().getTime(),
                 "city": "Paris",
                 "location": "Stade de France",
                 "score_a": 3,
@@ -37,7 +37,7 @@ Meteor.startup(() => {
             {
                 "_id":"psgevt2",
                 "type": "training",
-                "date": 1499367600,
+                "date": new Date().getTime(),
                 "city": "Paris",
                 "location": "Stade de France",
                 "duration": 9000,
@@ -59,7 +59,7 @@ Meteor.startup(() => {
             {
                 "_id":"psgevt3",
                 "type": "training",
-                "date": 1499368000,
+                "date": new Date().getTime(),
                 "city": "Paris",
                 "location": "Parc des Princes",
                 "duration": 7200,
@@ -81,7 +81,7 @@ Meteor.startup(() => {
             {
                 "_id":"psgevt4",
                 "type": "training",
-                "date": 1499350000,
+                "date": new Date().getTime(),
                 "city": "Paris",
                 "location": "Gymnase Pierre Lagravère",
                 "duration": 3600,
@@ -158,7 +158,7 @@ Meteor.startup(() => {
             {
                 "_id":"omevt1",
                 "type": "match",
-                "date": 1499108400,
+                "date": new Date().getTime(),
                 "city": "Paris",
                 "location": "Stade de France",
                 "score_a": 2,
@@ -183,7 +183,7 @@ Meteor.startup(() => {
             {
                 "_id":"omevt2",
                 "type": "training",
-                "date": 1499367600,
+                "date": new Date().getTime(),
                 "city":"Marseille",
                 "location": "Stade Velodrome",
                 "duration": 7200,
