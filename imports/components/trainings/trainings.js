@@ -2,6 +2,7 @@ import angular from "angular";
 import angularMeteor from "angular-meteor";
 import uiRouter from "angular-ui-router";
 import {name as Navig} from "../navig/navig";
+import {name as TrainingUpdateCtrl} from "../trainingUpdate/trainingUpdate";
 import {Teams} from "../../api/Teams";
 
 import template from "./trainings.html";
@@ -69,6 +70,7 @@ const name = 'trainings'
 export default angular.module(name, [
     angularMeteor,
     uiRouter,
+    TrainingUpdateCtrl,
     Navig
 
 ])
