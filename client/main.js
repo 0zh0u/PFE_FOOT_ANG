@@ -8,6 +8,7 @@ angular.module('pfe-foot', [
     trem.name
 ]);
 
+
 function onReady() {
     angular.bootstrap(document, ['pfe-foot']);
 }

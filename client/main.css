@@ -100,22 +100,16 @@ body trem .noPad {
   padding: 0 0 10px 0;
   margin: 10px 0 0 0;
 }
-body trem team-view .flex-container-col {
-  justify-content: center;
-  display: flex;
-  height: 600px;
-  position: relative;
-}
-body trem team-view .soccerfield-field-field-img {
+body trem team-view .soccer {
   z-index: 0;
-  height: 600px;
-  position: relative;
-  background-image: url("img/soccerfield_green.png");
-  width: 900px;
+  height: 100%;
+  width: 60em;
+  position: absolute;
+  background-image: url("img/soccerField.svg");
+  background-repeat: no-repeat;
 }
 body trem team-view .post {
-  flex: 1;
-  flex-grow: 0;
+  overflow: hidden;
 }
 body trem team-view .disabled {
   display: none;
@@ -131,19 +125,12 @@ body trem team-view player-post .fa-plus-circle {
 body trem team-view player-post .pos {
   text-align: center;
 }
+body trem team-view player-post .player {
+  border-bottom: 1px solid #cccccc;
+}
 body trem team-view player-post .list {
-  width: 133px;
-  height: 100px;
   background-color: #FFF;
   overflow-y: scroll;
-}
-body trem team-view player-post .playerPost {
-  width: 133px;
-  height: 100px;
-}
-body trem team-view player-post .playerDetail {
-  width: 133px;
-  height: 100px;
 }
 body trem team-view player-post .playerDetail #playerAvatar {
   font-size: 3em;

@@ -5,12 +5,15 @@ import {Teams} from "../../api/Teams";
 import template from "./navig.html";
 
 class Navig {
-    constructor($scope) {
+    constructor($scope,$mdMedia) {
         $scope.viewModel(this);
 
         this.subscribe('teams');
 
         this.helpers({
+            $mdMedia() {
+                return $mdMedia;
+            },
             teams() {
                 return Teams.find(
                     // {
@@ -29,7 +32,7 @@ export default angular.module(name, [
 ])
     .component(name, {
         templateUrl: template,
-        controller: ['$scope', Navig],
+        controller: ['$scope', '$mdMedia', Navig],
         controllerAs: name,
         bindings: {
             currentTeam: '=',

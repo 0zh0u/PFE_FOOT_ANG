@@ -1,45 +1,58 @@
-<md-sidenav md-is-open="navig.menuOpened" class="md-whiteframe-4dp">
-    <md-list>
-        <md-list-item>
-            <md-input-container>
-                <label>Choix d'une équipe</label>
-                <md-select ng-model="navig.currentTeam" ng-model-options="{trackBy: '$value._id'}" ng-change="navig.menuOpened = false">
-                    <md-option ng-repeat="team in navig.teams" ng-value="team"
-                               ng-disabled="team._id === navig.currentTeam._id">
-                        {{team.name}}
-                    </md-option>
-                </md-select>
-            </md-input-container>
-        </md-list-item>
-        <any ng-if="navig.currentTeam">
+<md-sidenav flex md-is-locked-open="$mdMedia('gt-md')" md-is-open="navig.menuOpened" class="md-whiteframe-4dp">
+    <md-content>
+        <md-list>
             <md-list-item>
-                <md-button href="/{{navig.currentTeam._id}}/dashboard">
-                    <i class="fa fa-tachometer" aria-hidden="true"></i>
-                    Tableau de bord
-                </md-button>
+                <md-menu>
+                    <md-button aria-label="Menu de choix d'équipe" ng-click="$mdMenu.open($event)">
+                        <i class="fa fa-list"></i>{{navig.currentTeam.name}}
+                    </md-button>
+                    <md-menu-content width="4">
+                        <md-menu-item ng-repeat="team in navig.teams">
+                            <md-button ng-href="/{{team._id}}/dashboard"
+                                       ng-disabled="team._id == navig.currentTeam._id">
+                                {{team.name}}
+                            </md-button>
+                        </md-menu-item>
+                    </md-menu-content>
+                </md-menu>
             </md-list-item>
+            <any ng-if="navig.currentTeam">
+                <md-list-item>
+                    <md-button href="/{{navig.currentTeam._id}}/dashboard">
+                        <i class="fa fa-tachometer" aria-hidden="true"></i>
+                        Tableau de bord
+                    </md-button>
+                </md-list-item>
 
-            <md-list-item>
-                <md-button href="/{{navig.currentTeam._id}}/team">
-                    <i class="fa fa-flag" aria-hidden="true"></i>
-                    Gestion de l'équipe
-                </md-button>
-            </md-list-item>
+                <md-list-item>
+                    <md-button href="/{{navig.currentTeam._id}}/team">
+                        <i class="fa fa-flag" aria-hidden="true"></i>
+                        Gestion de l'équipe
+                    </md-button>
+                </md-list-item>
 
-            <md-list-item>
-                <md-button href="/{{navig.currentTeam._id}}/players">
-                    <i class="fa fa-users" aria-hidden="true"></i>
-                    Gestion des joueurs
-                </md-button>
-            </md-list-item>
+                <md-list-item>
+                    <md-button href="/{{navig.currentTeam._id}}/trainings">
+                        <i class="fa fa-book" aria-hidden="true"></i>
+                        Gestion des entraînements
+                    </md-button>
+                </md-list-item>
 
-            <md-list-item>
-                <md-button href="/{{navig.currentTeam._id}}/stats">
-                    <i class="fa fa-bar-chart" aria-hidden="true"></i>
-                    Statistiques
-                </md-button>
-            </md-list-item>
-        </any>
+                <md-list-item>
+                    <md-button href="/{{navig.currentTeam._id}}/players">
+                        <i class="fa fa-users" aria-hidden="true"></i>
+                        Gestion des joueurs
+                    </md-button>
+                </md-list-item>
 
-    </md-list>
+                <md-list-item>
+                    <md-button href="/{{navig.currentTeam._id}}/stats">
+                        <i class="fa fa-bar-chart" aria-hidden="true"></i>
+                        Statistiques
+                    </md-button>
+                </md-list-item>
+            </any>
+
+        </md-list>
+    </md-content>
 </md-sidenav>

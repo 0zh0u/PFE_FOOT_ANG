@@ -10,9 +10,11 @@ Meteor.startup(() => {
         "name": "Paris Saint Germain",
         "Events": [
             {
+                "_id":"psgevt1",
                 "type": "match",
-                "date": 1499108400,
-                "location": "Paris",
+                "date": new Date().getTime(),
+                "city": "Paris",
+                "location": "Stade de France",
                 "score_a": 3,
                 "team_b": "OM",
                 "score_b": 2,
@@ -33,10 +35,56 @@ Meteor.startup(() => {
                 ],
             },
             {
+                "_id":"psgevt2",
                 "type": "training",
-                "date": 1499367600,
-                "location": "Paris",
+                "date": new Date().getTime(),
+                "city": "Paris",
+                "location": "Stade de France",
+                "duration": 9000,
+                "Players": [
+                    {
+                        "player": "psgJ1",
+                        "confirmed": false
+                    },
+                    {
+                        "player": "psgJ2",
+                        "confirmed": true
+                    },
+                    {
+                        "player": "psgJ2",
+                        "confirmed": true
+                    }
+                ]
+            },
+            {
+                "_id":"psgevt3",
+                "type": "training",
+                "date": new Date().getTime(),
+                "city": "Paris",
+                "location": "Parc des Princes",
                 "duration": 7200,
+                "Players": [
+                    {
+                        "player": "psgJ1",
+                        "confirmed": false
+                    },
+                    {
+                        "player": "psgJ2",
+                        "confirmed": true
+                    },
+                    {
+                        "player": "psgJ2",
+                        "confirmed": true
+                    }
+                ]
+            },
+            {
+                "_id":"psgevt4",
+                "type": "training",
+                "date": new Date().getTime(),
+                "city": "Paris",
+                "location": "Gymnase Pierre Lagravère",
+                "duration": 3600,
                 "Players": [
                     {
                         "player": "psgJ1",
@@ -108,9 +156,11 @@ Meteor.startup(() => {
         "name": "Olympiques de Marseille",
         "Events": [
             {
+                "_id":"omevt1",
                 "type": "match",
-                "date": 1499108400,
-                "location": "Paris",
+                "date": new Date().getTime(),
+                "city": "Paris",
+                "location": "Stade de France",
                 "score_a": 2,
                 "team_b": "PSG",
                 "score_b": 3,
@@ -131,9 +181,11 @@ Meteor.startup(() => {
                 ]
             },
             {
+                "_id":"omevt2",
                 "type": "training",
-                "date": 1499367600,
-                "location": "Paris",
+                "date": new Date().getTime(),
+                "city":"Marseille",
+                "location": "Stade Velodrome",
                 "duration": 7200,
             }
         ],

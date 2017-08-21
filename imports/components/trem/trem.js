@@ -3,6 +3,8 @@ import angularMeteor from "angular-meteor";
 import uiRouter from "angular-ui-router";
 import ngMessages from 'angular-messages';
 import ngMaterial from 'angular-material';
+import ngDatatable from 'angular-material-data-table';
+import 'angular-material-data-table/dist/md-data-table.min.css';
 import 'angular-material/angular-material.css';
 import {name as SelectTeam} from "../selectTeam/selectTeam";
 import {name as DashboardCtrl} from "../dashboard/dashboard";
@@ -10,6 +12,8 @@ import {name as PlayersCtrl} from "../players/players";
 import {name as playerView} from "../playerView/playerView";
 import {name as teamCreate} from "../teamCreate/teamCreate";
 import {name as teamView} from "../teamView/teamView";
+import {name as trainings} from "../trainings/trainings";
+import {name as trainingUpdate} from "../trainingUpdate/trainingUpdate";
 import {Teams} from "../../api/Teams";
 
 import template from "./trem.html";
@@ -25,12 +29,15 @@ export default angular.module(name, [
     uiRouter,
     ngMessages,
     ngMaterial,
+    ngDatatable,
     SelectTeam,
     DashboardCtrl,
     PlayersCtrl,
     playerView,
     teamCreate,
-    teamView
+    teamView,
+    trainings,
+    trainingUpdate
 ])
     .component(name, {
         templateUrl: template,
@@ -42,4 +49,12 @@ export default angular.module(name, [
         $locationProvider.html5Mode(true);
 
         $urlRouterProvider.otherwise('/teams');
+    }).filter('startFrom', function() {
+        return function(input, start) {
+            if(!input)
+                return;
+
+            start = +start; //parse to int
+            return input.slice(start);
+        }
     });
