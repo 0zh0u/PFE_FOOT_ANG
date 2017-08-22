@@ -1,0 +1,63 @@
+<md-dialog>
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>
+                Event : {{event.type}}
+            </h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="hide()">
+                <i class="fa fa-2x fa-close"></i>
+            </md-button>
+        </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+        <md-content layout-gt-xs="row" layout="column" layout-padding>
+            <div flex class="md-list-item-text player-list">
+                <h3>{{event.date | date }} - {{event.type}}</h3>
+                <h4>{{event.city}} - {{event.location}}</h4>
+                <div ng-switch="event.type">
+                    <div ng-switch-when="match">
+                        <div class="match">{{team._id}} / {{event.team_b}} - {{event.duration | date :
+                            "hh:mm"}}
+                        </div>
+                        <md-list>
+                            <md-list-item class="row-{{eventPlayer.confirmed}}"
+                                          ng-repeat="eventPlayer in event.Players"
+                                          ng-init="player=findPlayer(eventPlayer.player)">
+                                <md-button ng-click="showDialog($event, player._id)">
+                                    <i class="fa fa-2x fa-search-plus"></i>
+                                </md-button>
+                                <md-input-container>
+                                    <label>Participe ?</label>
+                                    <md-select ng-model="eventPlayer.confirmed"
+                                               ng-change="updateParticipation($parent.$index, $index, eventPlayer.confirmed)"
+                                               style="min-width: 150px;">
+                                        <md-option ng-value="'wait'">En attente</md-option>
+                                        <md-option ng-value="'wont'">Pas disponible</md-option>
+                                        <md-option ng-value="'will'">Participera</md-option>
+                                    </md-select>
+                                </md-input-container>
+                                <div flex class="md-list-item-text">
+                                    <player-row player="player"></player-row>
+                                </div>
+                                <player-view player="player"></player-view>
+                                <md-divider ng-if="!$last"></md-divider>
+                            </md-list-item>
+                        </md-list>
+                    </div>
+                    <div ng-switch-when="training">
+
+                    </div>
+                </div>
+            </div>
+
+        </md-content>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+        <md-button class="md-warn" ng-click="playerUpdate.deletePlayer()">Supprimer</md-button>
+        <span flex></span>
+        <md-button class="md-primary" ng-click="playerUpdate.updatePlayer()">Enregistrer</md-button>
+        <md-button ng-click="playerUpdate.closeDialog()">Fermer</md-button>
+    </md-dialog-actions>
+</md-dialog>

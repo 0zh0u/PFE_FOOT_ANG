@@ -9,6 +9,7 @@ import {name as PlayerRow} from "../playerRow/playerRow";
 import {Teams} from "../../api/Teams";
 
 import template from "./dashboard.html";
+import eventModal from "./eventModal.html";
 
 class DashboardCtrl {
     constructor($scope, $timeout, $stateParams, $mdMedia, $mdDialog) {
@@ -24,7 +25,7 @@ class DashboardCtrl {
 
         this.helpers({
             $mdMedia() {
-              return $mdMedia;
+                return $mdMedia;
             },
             teams: function () {
                 return Teams.find();
@@ -34,42 +35,69 @@ class DashboardCtrl {
             }
         });
 
-        $timeout(function() {
-            $scope.$watch('dashboard.team', function() {
+        EventDialogController = function(event, team) {
+            return function($scope, $mdDialog) {
+                'ngInject';
+
+                $scope.team = team;
+
+                $scope.event = event;
+
+                $scope.hide = function() {
+                    $mdDialog.hide();
+                };
+
+
+                $scope.showDialog = function (ev, id) {
+                    $mdDialog.show({
+                        contentElement: '#' + id + '-Pop',
+                        parent: angular.element(document.body),
+                        clickOutsideToClose: true,
+                        multiple: true
+                    });
+                };
+
+                $scope.findPlayer = player => $scope.team.Players.filter(e => e._id == player)[0];
+
+                $scope.updateParticipation = (eventIndex, playerIndex, participation) => {
+                    Meteor.call('teams.updatePlayerParticipation', $scope.team._id, eventIndex, playerIndex, participation);
+                }
+
+            };
+        };
+
+        $timeout(function () {
+            $scope.$watch('dashboard.team', function () {
                 console.log("test watch : ");
                 console.log(JSON.stringify(team));
 
-                if(team)
+                if (team)
                     $("#calendar").fullCalendar({
-                        events( start, end, timezone, callback ) {
-                            console.log("inside test : " + team);
-                                callback( team.Events );
+                        events(start, end, timezone, callback) {
+                            callback(team.Events);
                         },
-                        eventRender( event, element ) {
-                            console.log("test render :");
-                            console.log(JSON.stringify(event));
-                            element.find( '.fc-content' ).html(
+                        eventRender(event, element) {
+                            element.addClass(event.type);
+                            element.find('.fc-content').html(
                                 `<span class="fc-title ${ event.type }">${ event.type }</span>`
                             );
+                        },
+                        eventClick: function (calEvent, jsEvent, view) {
+                            $mdDialog.show({
+                                controller: EventDialogController(calEvent, team),
+                                templateUrl: eventModal,
+                                parent: angular.element("dashboard"),
+                                clickOutsideToClose: true,
+                                fullScreen: true
+
+                            });
+
                         }
                     });
             });
         });
-
-        this.showDialog = function (ev, id) {
-            $mdDialog.show({
-                contentElement: '#' + id + '-Pop',
-                parent: angular.element(document.body),
-                clickOutsideToClose: true
-            });
-        };
-
-        this.findPlayer = player => this.team.Players.filter(e => e._id == player)[0];
-
-        this.updateParticipation = (eventIndex, playerIndex, participation) => {
-            Meteor.call('teams.updatePlayerParticipation', this.team._id, eventIndex, playerIndex, participation);
-        }
     }
+
 }
 
 const name = 'dashboard'

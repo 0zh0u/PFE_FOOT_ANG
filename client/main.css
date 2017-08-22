@@ -188,13 +188,19 @@ body trem team-view player-post player-row #text {
 body trem team-creat player-post .icon {
   font-size: 3em;
 }
-body trem dashboard .row-wait md-select {
+body trem dashboard .fc-event.match {
+  background-color: lightcoral !important;
+}
+body trem dashboard .fc-event.training {
+  background-color: lightskyblue !important;
+}
+body trem .player-list .row-wait md-select {
   color: lightsalmon !important;
 }
-body trem dashboard .row-wont md-select {
+body trem .player-list .row-wont md-select {
   color: lightcoral !important;
 }
-body trem dashboard .row-will md-select {
+body trem .player-list .row-will md-select {
   color: #09ab09 !important;
 }
 body trem .player-view-header-text {
