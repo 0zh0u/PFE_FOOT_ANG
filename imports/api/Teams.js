@@ -45,6 +45,30 @@ if (Meteor.isServer) {
                     $pull: {"Players": {"_id": {$in: playersId } } }
                 }
             );
+        },
+        'teams.updateTraining'(teamId, training) {
+            Teams.update({"_id": teamId, "Events._id": training._id}, {
+                    $set: {"Events.$": training}
+                }
+            );
+        },
+        'teams.createTraining'(teamId, training) {
+            Teams.update(teamId, {
+                    $push: {"Events": training}
+                }
+            );
+        },
+        'teams.deleteTraining'(teamId, trainingId) {
+            Teams.update(teamId, {
+                    $pull: {"Events": {"_id": trainingId}}
+                }
+            );
+        },
+        'teams.deleteTrainings'(teamId, trainingId) {
+            Teams.update(teamId, {
+                    $pull: {"Events": {"_id": {$in: trainingId } } }
+                }
+            );
         }
         // ,
         // 'teams.players.aggregate'(teamId, queryParams) {
