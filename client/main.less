@@ -134,26 +134,16 @@ body {
 
     team-view {
 
-      .flex-container {
-
-      }
-
-      .flex-container-col {
-        justify-content: center;
-        display: flex;
-        height: 600px;
-        position: relative;
-      }
-      .soccerfield-field-field-img {
+      .soccer{
         z-index: 0;
-        height: 600px;
-        position: relative;
-        background-image: url("img/soccerfield_green.png");
-        width: 900px;
+        height:100%;
+        width:60em;
+        position: absolute;
+        background-image: url("img/soccerField.svg");
+        background-repeat: no-repeat;
       }
       .post {
-        flex: 1;
-        flex-grow: 0;
+        overflow: hidden;
       }
       .disabled {
         display: none;
@@ -168,20 +158,25 @@ body {
         .pos {
           text-align: center;
         }
+
+        .player{
+          border-bottom: 1px solid #cccccc;
+        }
+
         .list{
-          width : 133px;
-          height: 100px;
+          //width : 133px;
+          //height: 100px;
           background-color: #FFF;
 
           overflow-y: scroll;
         }
         .playerPost{
-          width : 133px;
-          height: 100px;
+          //width : 133px;
+          //height: 100px;
         }
         .playerDetail{
-          width : 133px;
-          height: 100px;
+         // width : 133px;
+         // height: 100px;
           #playerAvatar {
             font-size:3em;
             color:FFF;

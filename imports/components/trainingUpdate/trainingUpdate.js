@@ -33,7 +33,9 @@ class TrainingUpdateCtrl {
 
 const name = 'trainingUpdate'
 
-export default angular.module(name)
+export default angular.module(name,[
+    angularMeteor
+    ])
     .component(name, {
         templateUrl: template,
         controllerAs : name,

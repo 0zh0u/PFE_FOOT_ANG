@@ -19,12 +19,10 @@
                         <div layout="column">
                             <md-input-container flex>
                                 <label>Date</label>
-                                <input name="date" ng-model="trainingUpdate.trainingUpd.date" md-maxlength="30"
-                                       required/>
+                                <md-datepicker ng-model="trainingUpdate.trainingUpd.date" md-placeholder="Choisir la date" md-open-on-focus required></md-datepicker>
                                 <div ng-messages="trainingUpdateForm.date.$error" md-auto-hide="false"
                                      ng-show="trainingUpdateForm.date.$touched">
-                                    <div ng-message="required">Le nom est obligatoire.</div>
-                                    <div ng-message="md-maxlength">Le nom doit faire moins de 30 caractères.</div>
+                                    <div ng-message="required">La date est obligatoire.</div>
                                 </div>
                             </md-input-container>
 
@@ -35,6 +33,25 @@
                                 <div ng-messages="trainingUpdateForm.city.$error">
                                     <div ng-message="required">Le prénom est obligatoire.</div>
                                     <div ng-message="md-maxlength">Le prénom doit faire moins de 30 caractères.</div>
+                                </div>
+                            </md-input-container>
+
+                            <md-input-container flex>
+                                <label>Lieu</label>
+                                <input name="location" ng-model="trainingUpdate.trainingUpd.location" md-maxlength="50"
+                                       required/>
+                                <div ng-messages="trainingUpdateForm.location.$error">
+                                    <div ng-message="required">Le lieu est obligatoire.</div>
+                                    <div ng-message="md-maxlength">Le lieu doit faire moins de 50 caractères.</div>
+                                </div>
+                            </md-input-container>
+
+                            <md-input-container flex>
+                                <label>Durée</label>
+                                <input name="duration" ng-model="trainingUpdate.trainingUpd.duration | date : 'hh:mm'" md-maxlength="30"
+                                       required/>
+                                <div ng-messages="trainingUpdateForm.duration.$error">
+                                    <div ng-message="required">La durée est obligatoire.</div>
                                 </div>
                             </md-input-container>
                         </div>
