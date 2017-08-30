@@ -1,0 +1,22 @@
+<div style="visibility: hidden">
+    <div class="md-dialog-container" id="eventCreate-Pop">
+        <md-dialog>
+            <md-toolbar>
+                <div class="md-toolbar-tools">
+                    <h2>
+                        Création d'un événement
+                    </h2>
+                    <span flex></span>
+                    <md-button class="md-icon-button" ng-click="eventCreate.closeDialog()">
+                        <i class="fa fa-2x fa-close"></i>
+                    </md-button>
+                </div>
+            </md-toolbar>
+
+            <md-dialog-actions layout="row">
+                <span flex></span>
+                <md-button class="md-primary" ng-click="eventCreate.createEvent()">Créer</md-button>
+                <md-button ng-click="eventCreate.closeDialog()">Fermer</md-button>
+            </md-dialog-actions>
+    </div>
+</div>
