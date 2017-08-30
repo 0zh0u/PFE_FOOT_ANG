@@ -7,7 +7,7 @@ import "fullcalendar/dist/fullcalendar.print.min.css";
 import {name as Navig} from "../navig/navig";
 import {name as PlayerRow} from "../playerRow/playerRow";
 import {name as EventCreateCtrl} from "../eventCreate/eventCreate";
-import {name as EventUpdateCtrl} from "../eventUpdate/eventUpdate";
+//import {name as EventUpdateCtrl} from "../eventUpdate/eventUpdate";
 import {Teams} from "../../api/Teams";
 
 import template from "./dashboard.html";
