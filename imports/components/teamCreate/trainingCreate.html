@@ -1,0 +1,67 @@
+<div style="visibility: hidden">
+    <div class="md-dialog-container" id="trainingCreate-Pop">
+        <md-dialog>
+            <md-toolbar>
+                <div class="md-toolbar-tools">
+                    <h2>
+                        Création d'un entraînement
+                    </h2>
+                    <span flex></span>
+                    <md-button class="md-icon-button" ng-click="trainingCreate.closeDialog()">
+                        <i class="fa fa-2x fa-close"></i>
+                    </md-button>
+                </div>
+            </md-toolbar>
+
+            <md-dialog-content>
+                <md-content layout="row" layout-padding>
+                    <form name="trainingCreateForm" flex>
+                        <div layout="column">
+                            <md-input-container flex>
+                                <label>Date</label>
+                                <md-datepicker ng-model="trainingCreate.training.date | date" md-placeholder="Choisir la date" md-open-on-focus required></md-datepicker>
+                                <div ng-messages="trainingCreateForm.date.$error" md-auto-hide="false"
+                                     ng-show="trainingCreateForm.date.$touched">
+                                    <div ng-message="required">La date est obligatoire.</div>
+                                </div>
+                            </md-input-container>
+
+                            <md-input-container flex>
+                                <label>Ville</label>
+                                <input name="city" ng-model="trainingCreate.training.city" md-maxlength="30"
+                                       required/>
+                                <div ng-messages="trainingCreateForm.city.$error" md-auto-hide="false" ng-show="trainingCreateForm.city.$touched">
+                                    <div ng-message="required">La ville est obligatoire.</div>
+                                    <div ng-message="md-maxlength">La ville doit faire moins de 30 caractères.</div>
+                                </div>
+                            </md-input-container>
+
+                            <md-input-container flex>
+                                <label>Lieu</label>
+                                <input name="location" ng-model="trainingCreate.training.location" md-maxlength="50"
+                                       required/>
+                                <div ng-messages="trainingCreateForm.location.$error">
+                                    <div ng-message="required">Le lieu est obligatoire.</div>
+                                    <div ng-message="md-maxlength">Le lieu doit faire moins de 50 caractères.</div>
+                                </div>
+                            </md-input-container>
+                            <md-input-container flex>
+                                <label>Durée</label>
+                                <input name="duration" ng-model="trainingCreate.training.duration | date : 'hh:mm'" md-maxlength="30"
+                                       required/>
+
+                                <div ng-messages="trainingCreateForm.duration.$error">
+                                    <div ng-message="required">La durée est obligatoire.</div>
+                                </div>
+                            </md-input-container>
+                        </div>
+                    </form>
+                </md-content>
+            </md-dialog-content>
+            <md-dialog-actions layout="row">
+                <span flex></span>
+                <md-button class="md-primary" ng-click="trainingCreate.createTraining()">Créer</md-button>
+                <md-button ng-click="trainingCreate.closeDialog()">Fermer</md-button>
+            </md-dialog-actions>
+    </div>
+</div>
