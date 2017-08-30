@@ -5,10 +5,11 @@
         </md-button>
         <h1>Evénements à venir - {{dashboard.team.name}}</h1>
         <span flex></span>
-        <md-button>
+        <md-button ng-click="showDialog($event, 'playerCreate')">
             <i class="fa fa-plus"></i>
             Créer un événement
         </md-button>
+		<event-create team-id="team._id"></event-create>
     </md-toolbar>
 
     <div flex layout="row">
