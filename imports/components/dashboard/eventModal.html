@@ -47,7 +47,30 @@
                         </md-list>
                     </div>
                     <div ng-switch-when="training">
-
+						<md-list>
+                            <md-list-item class="row-{{eventPlayer.confirmed}}"
+                                          ng-repeat="eventPlayer in event.Players"
+                                          ng-init="player=findPlayer(eventPlayer.player)">
+                                <md-button ng-click="showDialog($event, player._id)">
+                                    <i class="fa fa-2x fa-search-plus"></i>
+                                </md-button>
+                                <md-input-container>
+                                    <label>Participe ?</label>
+                                    <md-select ng-model="eventPlayer.confirmed"
+                                               ng-change="updateParticipation($parent.$index, $index, eventPlayer.confirmed)"
+                                               style="min-width: 150px;">
+                                        <md-option ng-value="'wait'">En attente</md-option>
+                                        <md-option ng-value="'wont'">Pas disponible</md-option>
+                                        <md-option ng-value="'will'">Participera</md-option>
+                                    </md-select>
+                                </md-input-container>
+                                <div flex class="md-list-item-text">
+                                    <player-row player="player"></player-row>
+                                </div>
+                                <player-view player="player"></player-view>
+                                <md-divider ng-if="!$last"></md-divider>
+                            </md-list-item>
+                        </md-list>
                     </div>
                 </div>
             </div>
