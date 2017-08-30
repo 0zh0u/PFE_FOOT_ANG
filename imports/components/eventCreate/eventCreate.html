@@ -12,6 +12,53 @@
                     </md-button>
                 </div>
             </md-toolbar>
+			
+			<md-dialog-content>
+                <md-content layout="row" layout-padding>
+                    <form name="eventCreateForm" flex>
+                        <div layout="column">
+                            <md-input-container flex>
+                                <label>Date</label>
+                                <md-datepicker ng-model="eventCreate.event.date | date" md-placeholder="Choisir la date" md-open-on-focus required></md-datepicker>
+                                <div ng-messages="eventCreateForm.date.$error" md-auto-hide="false"
+                                     ng-show="eventCreateForm.date.$touched">
+                                    <div ng-message="required">La date est obligatoire.</div>
+                                </div>
+                            </md-input-container>
+
+							<md-input-container flex>
+                                <label>Type</label>
+                                <input name="type" ng-model="eventCreate.event.type" md-maxlength="30"
+                                       required/>
+                                <div ng-messages="eventCreateForm.type.$error" md-auto-hide="false" ng-show="eventCreateForm.type.$touched">
+                                    <div ng-message="required">Le type est obligatoire.</div>
+                                    <div ng-message="md-maxlength">Le type doit faire moins de 30 caractères.</div>
+                                </div>
+                            </md-input-container>
+							
+                            <md-input-container flex>
+                                <label>Ville</label>
+                                <input name="city" ng-model="eventCreate.event.city" md-maxlength="30"
+                                       required/>
+                                <div ng-messages="eventCreateForm.city.$error" md-auto-hide="false" ng-show="eventCreateForm.city.$touched">
+                                    <div ng-message="required">La ville est obligatoire.</div>
+                                    <div ng-message="md-maxlength">La ville doit faire moins de 30 caractères.</div>
+                                </div>
+                            </md-input-container>
+
+                            <md-input-container flex>
+                                <label>Lieu</label>
+                                <input name="location" ng-model="eventCreate.event.location" md-maxlength="50"
+                                       required/>
+                                <div ng-messages="eventCreateForm.location.$error">
+                                    <div ng-message="required">Le lieu est obligatoire.</div>
+                                    <div ng-message="md-maxlength">Le lieu doit faire moins de 50 caractères.</div>
+                                </div>
+                            </md-input-container>
+                        </div>
+                    </form>
+                </md-content>
+            </md-dialog-content>
 
             <md-dialog-actions layout="row">
                 <span flex></span>
