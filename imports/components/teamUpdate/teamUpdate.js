@@ -17,6 +17,14 @@ class teamUpdateCtrl {
             }
             });
     }
+    updateTeam(myTeam){
+        Teams.update({
+			//TODO TOTEST
+            //_id : myTeam._id,
+            name : myTeam.name,
+            age : myTeam.age
+        });
+    }
 }
 
 const name = 'teamUpdate'
@@ -38,3 +46,4 @@ export default angular.module(name, [
             template: '<team-update></team-update>'
         });
 });
+
