@@ -6,11 +6,20 @@ import {Teams} from "../../api/Teams";
 import template from "./teamUpdate.html";
 
 class teamUpdateCtrl {
+    constructor($scope) {
 
+        $scope.viewModel(this);
+        this.team = {};
+        this.subscribe('teams');
+        this.helpers({
+            team(){
+                return $scope.getReactively('$ctrl.team');
+            }
+            });
+    }
 }
 
 const name = 'teamUpdate'
-
 
 export default angular.module(name, [
     angularMeteor,
