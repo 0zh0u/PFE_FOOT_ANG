@@ -11,3 +11,21 @@ class teamUpdateCtrl {
 
 const name = 'teamUpdate'
 
+
+export default angular.module(name, [
+    angularMeteor,
+    uiRouter
+])
+    .component(name, {
+        templateUrl: template,
+        controllerAs : name,
+        controller: ['$scope', teamUpdateCtrl]
+    }).config(function ($stateProvider) {
+    'ngInject';
+
+    $stateProvider
+        .state('playerView', {
+            url: '/update-team',
+            template: '<team-update></team-update>'
+        });
+});
